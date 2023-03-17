@@ -1,41 +1,26 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  Button,
-  Text,
-  View,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, Button, Text, View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+import LoginPage from './src/pages/login_page';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <View>
-        <Text>Login</Text>
-        <Button title='Login' onPress={()=>{console.log('Logged in');
-        }}/>
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={LoginPage} />
+      </Stack.Navigator>
+
+      {/* <SafeAreaView style={{flex:1}}>
+      <LoginPage />
+    </SafeAreaView> */}
+    </NavigationContainer>
   );
 };
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+const styles = StyleSheet.create({});
 
 export default App;
