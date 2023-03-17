@@ -1,6 +1,6 @@
 import {StyleSheet, Text, TextInput, TouchableOpacity} from 'react-native';
 import React from 'react';
-import { AppColor } from '../../consts/const';
+import { AppColor } from '../../consts/colors';
 
 interface inputTextInterface {
   placeholder: string;

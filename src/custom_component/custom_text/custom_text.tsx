@@ -1,6 +1,6 @@
-import {ColorValue, StyleSheet, Text, TextStyle} from 'react-native';
+import {StyleSheet, Text, TouchableHighlight} from 'react-native';
 import React from 'react';
-import {AppColor} from '../../consts/const';
+import {AppColor} from '../../consts/colors';
 
 // interface TextInterface {
 //     text:string,
@@ -12,10 +12,15 @@ import {AppColor} from '../../consts/const';
 interface TextInterface {
   text: string;
   textStyle?: {};
+  onPress?: ()=>void;
 }
 
-const CustomText = ({text, textStyle}: TextInterface) => {
-  return <Text style={[styles.default, textStyle]}>{text}</Text>;
+const CustomText = ({text, textStyle,onPress}: TextInterface) => {
+  return (
+  <TouchableHighlight onPress={onPress}>
+  <Text style={[styles.default, textStyle]}>{text}</Text>
+  </TouchableHighlight>
+  );
 };
 
 const styles = StyleSheet.create({
