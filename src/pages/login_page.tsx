@@ -3,8 +3,9 @@ import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
 import React, {useState} from 'react';
 import CustomButton from '../custom_component/custom_button/custom_button';
 import CustomText from '../custom_component/custom_text/custom_text';
-import {AppColor} from '../consts/colors';
+
 import CustomInputText from '../custom_component/custom_input_text/custom_input_text';
+import { AppColor } from '../consts/colors';
 
 const LoginPage = ({navigation}:any) => {
   const [user, setUser] = useState<string>('');
@@ -29,7 +30,7 @@ const LoginPage = ({navigation}:any) => {
       <CustomButton text="Login" onPress={login} isLoading={isLoading} />
       <View style={{flexDirection:'row'}}>
       <Text>No account, </Text>
-      <CustomText onPress={goToRegisterPage}>Sign up</CustomText>
+      <CustomText text='Sign up' onPress={goToRegisterPage}/>
       </View>
     </View>
   );
