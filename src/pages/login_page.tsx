@@ -1,4 +1,4 @@
-import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 import React, {useState} from 'react';
 import CustomButton from '../custom_component/custom_button/custom_button';
@@ -6,14 +6,20 @@ import CustomText from '../custom_component/custom_text/custom_text';
 
 import CustomInputText from '../custom_component/custom_input_text/custom_input_text';
 import { AppColor } from '../consts/colors';
+import { AppString } from '../consts/strings';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const LoginPage = ({navigation}:any) => {
   const [user, setUser] = useState<string>('');
   const login = () => {
+    
     setIsLoading(true);
+    navigation.navigate(AppString.pages.MainPage);
+    setIsLoading(false);
+  
   };
   const goToRegisterPage = () =>{
-    navigation.navegate('');
+    navigation.navigate(AppString.pages.RegisterPage);
   }
   const [isLoading, setIsLoading] = useState(false);
 
@@ -32,6 +38,7 @@ const LoginPage = ({navigation}:any) => {
       <Text>No account, </Text>
       <CustomText text='Sign up' onPress={goToRegisterPage}/>
       </View>
+      <Icon name={'facebook'} size={14} color='black'></Icon>
     </View>
   );
 };

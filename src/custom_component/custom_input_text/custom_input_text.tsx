@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import Icon  from 'react-native-vector-icons/FontAwesome';
+import { AppColor } from '../../consts/colors';
 //import { AppColor } from '../../consts/colors';
 
 interface inputTextInterface {
@@ -33,7 +34,7 @@ const CustomInputText = ({
 
   return (
     <View style={[styles.inputTextContainer,{
-      backgroundColor: 'orange',
+      //backgroundColor: 'orange',
       width: '90%',
       marginVertical: marginVertical,
       marginHorizontal: marginHorizontal,
@@ -41,7 +42,7 @@ const CustomInputText = ({
       <TextInput
         style={[
           {
-            backgroundColor: 'green',
+            //backgroundColor: 'green',
             width: '90%',
           },
         ]}
@@ -53,12 +54,15 @@ const CustomInputText = ({
       {trailingIcon && (
         <TouchableOpacity onPress={iconPressed}>
           {!secureTextEntry ? (
-            <Icon name={'eye'}></Icon>
+            <Icon name={'facebook'} size={14} color='black'></Icon>
           ) : (
-            <Icon name={'eye-slash'}></Icon>
+            <Icon name={'eye-slash'} size={14} color='black'></Icon>
           )}
         </TouchableOpacity>
+
       )}
+
+      
     </View>
   );
 };

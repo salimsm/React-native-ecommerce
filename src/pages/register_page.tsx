@@ -40,7 +40,6 @@ const RegisterPage = () => {
         }}
       />
       <CustomButton text="Register" onPress={register} isLoading={isLoading} />
-      {/* <Text>{user}</Text> */}
     </View>
   );
 };
