@@ -12,8 +12,11 @@ import {AppRoute} from '../consts/routes';
 const LoginPage = ({navigation}: any) => {
   const login = () => {
     setIsLoading(true);
-    navigation.navigate(AppRoute.MainPage);
-    setIsLoading(false);
+    setInterval(()=>{
+      navigation.navigate(AppRoute.MainPage);
+      setIsLoading(false);
+    },2000);
+    
   };
   const goToRegisterPage = () => {
     navigation.navigate(AppRoute.RegisterPage);
