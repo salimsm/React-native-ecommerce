@@ -4,7 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import LoginPage from './src/pages/login_page';
-import { AppString } from './src/consts/strings';
+import { AppString } from './src/consts/routes';
 import RegisterPage from './src/pages/register_page';
 import MainPage from './src/pages/main_page';
 

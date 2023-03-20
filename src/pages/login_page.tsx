@@ -6,20 +6,20 @@ import CustomText from '../custom_component/custom_text/custom_text';
 
 import CustomInputText from '../custom_component/custom_input_text/custom_input_text';
 import { AppColor } from '../consts/colors';
-import { AppString } from '../consts/strings';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { AppRoute } from '../consts/routes';
 
 const LoginPage = ({navigation}:any) => {
   const [user, setUser] = useState<string>('');
   const login = () => {
     
     setIsLoading(true);
-    navigation.navigate(AppString.pages.MainPage);
+    navigation.navigate(AppRoute.MainPage);
     setIsLoading(false);
   
   };
   const goToRegisterPage = () =>{
-    navigation.navigate(AppString.pages.RegisterPage);
+    navigation.navigate(AppRoute.RegisterPage);
   }
   const [isLoading, setIsLoading] = useState(false);
 

@@ -5,8 +5,9 @@ import CustomText from '../custom_component/custom_text/custom_text';
 import {AppColor} from '../consts/colors';
 import CustomCard from '../custom_component/custom_card/custom_card';
 import { axiosInstance } from '../config/config';
+import { AppRoute } from '../consts/routes';
 
-const MainPage = () => {
+const MainPage = ({navigation}:any) => {
   // const [user, setUser] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
   const [productList, setProductList] = useState([]);
@@ -45,6 +46,7 @@ const MainPage = () => {
         data={productList}
         renderItem={({item}) => {
           return <CustomCard item={item} onPress={()=>{
+            navigation.navigate(AppRoute.DetailPage,{item});
           }}/>
         }}
       />
