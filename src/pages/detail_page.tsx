@@ -26,7 +26,7 @@ const DetailPage = ({route}: any) => {
           textStyle={styles.mediumTextStyle}
         />
 
-        <ImageContainer imageUrls={item?.images} height={40}/>
+        <ImageContainer imageUrls={item?.images} height={40} />
 
         <CustomText text={item.description} textStyle={styles.smallTextStyle} />
         <CustomButton text='Add To Cart' onPress={()=>{}}/>

@@ -2,13 +2,6 @@ import {StyleSheet, Text, TouchableHighlight} from 'react-native';
 import React from 'react';
 import {AppColor} from '../../consts/colors';
 
-// interface TextInterface {
-//     text:string,
-//     size: number,
-//     color: ColorValue,
-//     weight:
-// }
-
 interface TextInterface {
   text: string;
   textStyle?: {};

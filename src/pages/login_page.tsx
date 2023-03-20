@@ -5,22 +5,19 @@ import CustomButton from '../custom_component/custom_button/custom_button';
 import CustomText from '../custom_component/custom_text/custom_text';
 
 import CustomInputText from '../custom_component/custom_input_text/custom_input_text';
-import { AppColor } from '../consts/colors';
+import {AppColor} from '../consts/colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { AppRoute } from '../consts/routes';
+import {AppRoute} from '../consts/routes';
 
-const LoginPage = ({navigation}:any) => {
-  const [user, setUser] = useState<string>('');
+const LoginPage = ({navigation}: any) => {
   const login = () => {
-    
     setIsLoading(true);
     navigation.navigate(AppRoute.MainPage);
     setIsLoading(false);
-  
   };
-  const goToRegisterPage = () =>{
+  const goToRegisterPage = () => {
     navigation.navigate(AppRoute.RegisterPage);
-  }
+  };
   const [isLoading, setIsLoading] = useState(false);
 
   return (
@@ -34,11 +31,11 @@ const LoginPage = ({navigation}:any) => {
         marginVertical={10}
       />
       <CustomButton text="Login" onPress={login} isLoading={isLoading} />
-      <View style={{flexDirection:'row'}}>
-      <Text>No account, </Text>
-      <CustomText text='Sign up' onPress={goToRegisterPage}/>
+      <View style={{flexDirection: 'row'}}>
+        <Text>No account, </Text>
+        <CustomText text="Sign up" onPress={goToRegisterPage} />
       </View>
-      <Icon name={'facebook'} size={14} color='black'></Icon>
+      <Icon name={'facebook'} size={14} color="black"></Icon>
     </View>
   );
 };

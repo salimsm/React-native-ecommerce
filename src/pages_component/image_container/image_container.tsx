@@ -4,8 +4,8 @@ import CustomImage from '../../custom_component/custom_image/custom_image';
 
 interface imageContainerInterface {
   imageUrls: string[];
-  height:number;
-  width:number|string;
+  height?:number;
+  width?:number|string;
 }
 
 const ImageContainer = ({imageUrls, height=20, width='100%'}: imageContainerInterface) => {

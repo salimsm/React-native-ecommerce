@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
 import React, {useState} from 'react';
 import CustomButton from '../custom_component/custom_button/custom_button';
@@ -7,7 +7,6 @@ import {AppColor} from '../consts/colors';
 import CustomInputText from '../custom_component/custom_input_text/custom_input_text';
 
 const RegisterPage = () => {
-  // const [user, setUser] = useState<string>('');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   

@@ -34,7 +34,6 @@ const CustomInputText = ({
 
   return (
     <View style={[styles.inputTextContainer,{
-      //backgroundColor: 'orange',
       width: '80%',
       marginVertical: marginVertical,
       marginHorizontal: marginHorizontal,
@@ -42,7 +41,6 @@ const CustomInputText = ({
       <TextInput
         style={[
           {
-            //backgroundColor: 'green',
             width: '90%',
           },
         ]}
@@ -78,15 +76,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal:6,
   },
-  // inputTextStyle: {
-  //   width: '70%',
-  //   borderColor: AppColor.black,
-  //   borderWidth: 1,
-  //   borderRadius: 5,
-  //   paddingLeft: 10,
-  //   justifyContent: 'center',
-  //   backgroundColor:'green'
-  // },
 });
 
 export default CustomInputText;
