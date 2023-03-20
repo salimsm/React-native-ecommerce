@@ -6,13 +6,15 @@ interface buttonInterface {
   text: string;
   onPress: () => void,
   isLoading?:boolean,
+  buttonStyle?:{},
+  buttonTextStyle?:{}
 }
 
-const CustomButton = ({text, onPress ,isLoading = false}: buttonInterface) => {
+const CustomButton = ({text, onPress ,isLoading = false,buttonStyle,buttonTextStyle}: buttonInterface) => {
   return (
-    <TouchableOpacity style={styles.buttonStyle} onPress={onPress}>
+    <TouchableOpacity style={[styles.buttonStyle,buttonStyle]} onPress={onPress}>
       {isLoading && <ActivityIndicator color={AppColor.white}/>}
-      <Text style={styles.textStyle}>{text}</Text>
+      <Text style={[styles.textStyle,buttonTextStyle]}>{text}</Text>
     </TouchableOpacity>
   );
 };
@@ -20,7 +22,7 @@ const CustomButton = ({text, onPress ,isLoading = false}: buttonInterface) => {
 const styles = StyleSheet.create({
   buttonStyle: {
     height: 40,
-    width: '70%',
+    width: '80%',
     backgroundColor: AppColor.primary,
     flexDirection:'row',
     justifyContent: 'center',

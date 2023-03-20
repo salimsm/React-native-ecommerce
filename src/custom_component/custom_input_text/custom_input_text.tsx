@@ -35,7 +35,7 @@ const CustomInputText = ({
   return (
     <View style={[styles.inputTextContainer,{
       //backgroundColor: 'orange',
-      width: '90%',
+      width: '80%',
       marginVertical: marginVertical,
       marginHorizontal: marginHorizontal,
     }]}>

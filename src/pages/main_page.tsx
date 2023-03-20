@@ -44,9 +44,11 @@ const MainPage = ({navigation}:any) => {
       <FlatList
         numColumns={2}
         data={productList}
-        renderItem={({item}) => {
+        renderItem={({item}:any) => {
           return <CustomCard item={item} onPress={()=>{
-            navigation.navigate(AppRoute.DetailPage,{item});
+            navigation.navigate(AppRoute.DetailPage,
+              {item,name:item?.title}
+              );
           }}/>
         }}
       />
