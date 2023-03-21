@@ -5,7 +5,7 @@ import {
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-interface iconInterface {
+interface IconInterface {
   icon: string;
   size?: number;
   color?: string;
@@ -13,7 +13,7 @@ interface iconInterface {
   style?: {};
 }
 
-const CustomIcon = ({icon, size, color, onPress, style}: iconInterface) => {
+const CustomIcon:React.FC<IconInterface> = ({icon, size, color, onPress, style}: IconInterface) => {
   return (
     <TouchableOpacity style={style} onPress={onPress}>
       <Icon name={icon} size={size} color={color} />

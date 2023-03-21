@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import React from 'react';
 
-interface imageInterface {
+interface ImageInterface {
   imageUrl: string;
   onPress: () => void;
   height: number | string;
@@ -13,7 +13,7 @@ interface imageInterface {
   margin?: number;
 }
 
-const CustomImage = ({imageUrl, onPress, height, width, margin}: imageInterface) => {
+const CustomImage: React.FC<ImageInterface> = ({imageUrl, onPress, height, width, margin}:ImageInterface) => {
   return (
     <TouchableOpacity onPress={onPress} style={{margin:margin}}>
       <Image source={{uri: imageUrl}} style={{height: height, width: width}} />
