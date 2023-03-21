@@ -10,11 +10,12 @@ interface imageInterface {
   onPress: () => void;
   height: number;
   width: number;
+  margin?: number;
 }
 
-const CustomImage = ({imageUrl, onPress, height, width}: imageInterface) => {
+const CustomImage = ({imageUrl, onPress, height, width, margin}: imageInterface) => {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress} style={{margin:margin}}>
       <Image source={{uri: imageUrl}} style={{height: height, width: width}} />
     </TouchableOpacity>
   );
