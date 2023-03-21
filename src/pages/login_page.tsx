@@ -13,7 +13,7 @@ const LoginPage = ({navigation}: any) => {
   const login = () => {
     setIsLoading(true);
     setInterval(()=>{
-      navigation.navigate(AppRoute.MainPage);
+      navigation.navigate('MainStack');
       setIsLoading(false);
     },2000);
     

@@ -6,10 +6,10 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginPage from './src/pages/login_page';
 import {AppRoute} from './src/consts/routes';
 import RegisterPage from './src/pages/register_page';
-import MainPage from './src/pages/main_page';
-import DetailPage from './src/pages/detail_page';
+import MainStack from './src/navigation/stack_navigation/main_stack';
 
 const Stack = createNativeStackNavigator();
+
 
 const App = () => {
   return (
@@ -29,14 +29,12 @@ const App = () => {
             headerShown: false,
           }}
         />
-        <Stack.Screen name={AppRoute.MainPage} component={MainPage} 
-                options={{
-                  headerShown:false
-                }}
-        
-        />
-        <Stack.Screen name={AppRoute.DetailPage} component={DetailPage}
-          options={({route}:any)=>({title: route?.params?.name })}
+        <Stack.Screen
+          name={'MainStack'}
+          component={MainStack}
+          options={{
+            headerShown: false,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -40,12 +40,11 @@ const MainPage = ({navigation}: any) => {
           return (
             <CustomCard
               item={item}
-              onPress={() => {
-                navigation.navigate(AppRoute.DetailPage, {
+              onPress={() => navigation.navigate(AppRoute.DetailPage, {
                   item,
                   name: item?.title,
-                });
-              }}
+                })
+              }
             />
           );
         }}

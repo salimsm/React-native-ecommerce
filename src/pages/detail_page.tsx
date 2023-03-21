@@ -1,4 +1,4 @@
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, Modal, StyleSheet, Text, View} from 'react-native';
 
 import React, {useEffect, useState} from 'react';
 import CustomText from '../custom_component/custom_text/custom_text';
@@ -37,6 +37,17 @@ const DetailPage = ({route}: any) => {
     </View>
   );
 };
+
+
+const ImageModel=() =>{
+  return (
+    <View>
+      <Modal>
+      <Text>detail_page</Text>
+      </Modal>
+    </View>
+  )
+}
 
 const styles = StyleSheet.create({
   detailPage: {
