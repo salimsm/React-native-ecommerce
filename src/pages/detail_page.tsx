@@ -39,15 +39,6 @@ const DetailPage = ({route}: any) => {
 };
 
 
-const ImageModel=() =>{
-  return (
-    <View>
-      <Modal>
-      <Text>detail_page</Text>
-      </Modal>
-    </View>
-  )
-}
 
 const styles = StyleSheet.create({
   detailPage: {

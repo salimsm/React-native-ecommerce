@@ -8,8 +8,8 @@ import React from 'react';
 interface imageInterface {
   imageUrl: string;
   onPress: () => void;
-  height: number;
-  width: number;
+  height: number | string;
+  width: number | string;
   margin?: number;
 }
 
