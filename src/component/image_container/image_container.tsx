@@ -1,6 +1,6 @@
 import {FlatList, StyleSheet, View} from 'react-native';
 import React from 'react';
-import CustomImage from '../../custom_component/custom_image/custom_image';
+import CustomImage from '../../common/custom_image/custom_image';
 import { AppColor } from '../../consts/colors';
 
 interface imageContainerInterface {

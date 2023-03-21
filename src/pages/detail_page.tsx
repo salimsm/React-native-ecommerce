@@ -1,10 +1,10 @@
 import {Image, Modal, StyleSheet, Text, View} from 'react-native';
 
 import React, {useEffect, useState} from 'react';
-import CustomText from '../custom_component/custom_text/custom_text';
+import CustomText from '../common/custom_text/custom_text';
 import {AppColor} from '../consts/colors';
-import CustomButton from '../custom_component/custom_button/custom_button';
-import ImageContainer from '../pages_component/image_container/image_container';
+import CustomButton from '../common/custom_button/custom_button';
+import ImageContainer from '../component/image_container/image_container';
 
 const DetailPage = ({route}: any) => {
   const {item} = route.params;

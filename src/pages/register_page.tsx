@@ -1,10 +1,10 @@
 import {StyleSheet, View} from 'react-native';
 
 import React, {useState} from 'react';
-import CustomButton from '../custom_component/custom_button/custom_button';
-import CustomText from '../custom_component/custom_text/custom_text';
+import CustomButton from '../common/custom_button/custom_button';
+import CustomText from '../common/custom_text/custom_text';
 import {AppColor} from '../consts/colors';
-import CustomInputText from '../custom_component/custom_input_text/custom_input_text';
+import CustomInputText from '../common/custom_input_text/custom_input_text';
 
 const RegisterPage = () => {
   const [showPassword, setShowPassword] = useState(false);

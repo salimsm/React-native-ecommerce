@@ -1,13 +1,13 @@
 import {StyleSheet, Text, View} from 'react-native';
 
 import React, {useState} from 'react';
-import CustomButton from '../custom_component/custom_button/custom_button';
-import CustomText from '../custom_component/custom_text/custom_text';
+import CustomButton from '../common/custom_button/custom_button';
+import CustomText from '../common/custom_text/custom_text';
 
-import CustomInputText from '../custom_component/custom_input_text/custom_input_text';
 import {AppColor} from '../consts/colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {AppRoute} from '../consts/routes';
+import CustomInputText from '../common/custom_input_text/custom_input_text';
 
 const LoginPage = ({navigation}: any) => {
   const login = () => {
@@ -15,7 +15,7 @@ const LoginPage = ({navigation}: any) => {
     setInterval(()=>{
       navigation.navigate('MainStack');
       setIsLoading(false);
-    },2000);
+    },1000);
     
   };
   const goToRegisterPage = () => {

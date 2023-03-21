@@ -1,9 +1,9 @@
 import {FlatList, StyleSheet, View} from 'react-native';
 
 import React, {useEffect, useState} from 'react';
-import CustomText from '../custom_component/custom_text/custom_text';
+import CustomText from '../common/custom_text/custom_text';
 import {AppColor} from '../consts/colors';
-import CustomCard from '../custom_component/custom_card/custom_card';
+import CustomCard from '../common/custom_card/custom_card';
 import {axiosInstance} from '../config/config';
 import {AppRoute} from '../consts/routes';
 
