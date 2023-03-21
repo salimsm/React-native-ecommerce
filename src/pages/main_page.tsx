@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, View} from 'react-native';
+import {ActivityIndicator, FlatList, StyleSheet, View} from 'react-native';
 
 import React, {useEffect, useState} from 'react';
 import CustomText from '../common/custom_text/custom_text';
@@ -18,6 +18,7 @@ const MainPage = ({navigation}: any) => {
         console.log(response);
         if (response.status == 200) {
           setProductList(response.data);
+          setIsLoading(false);
         }
         return [];
       })
@@ -33,7 +34,7 @@ const MainPage = ({navigation}: any) => {
   return (
     <View style={styles.mainPage}>
       <CustomText text="Welcome back..." textStyle={styles.titleStyle} />
-      <FlatList
+      {isLoading?<ActivityIndicator/>: <FlatList
         numColumns={2}
         data={productList}
         renderItem={({item}: any) => {
@@ -48,7 +49,7 @@ const MainPage = ({navigation}: any) => {
             />
           );
         }}
-      />
+      />}
     </View>
   );
 };
