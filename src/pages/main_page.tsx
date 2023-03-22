@@ -6,6 +6,7 @@ import {AppColor} from '../consts/colors';
 import CustomCard from '../common/custom_card/custom_card';
 import {axiosInstance} from '../config/config';
 import {AppRoute} from '../consts/routes';
+import Appbar from '../component/app _bar/app_bar';
 
 const MainPage = ({navigation}: any) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,6 +34,7 @@ const MainPage = ({navigation}: any) => {
 
   return (
     <View style={styles.mainPage}>
+      <Appbar />
       <CustomText text="Welcome back..." textStyle={styles.titleStyle} />
       {isLoading?<ActivityIndicator/>: <FlatList
         numColumns={2}
