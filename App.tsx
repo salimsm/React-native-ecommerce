@@ -7,37 +7,40 @@ import LoginPage from './src/pages/login_page';
 import {AppRoute} from './src/consts/routes';
 import RegisterPage from './src/pages/register_page';
 import MainStack from './src/navigation/stack_navigation/main_stack';
+import {Provider} from 'react-redux';
+import { store } from './src/redux/store/store';
 
 const Stack = createNativeStackNavigator();
 
-
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name={AppRoute.LoginPage}
-          component={LoginPage}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name={AppRoute.RegisterPage}
-          component={RegisterPage}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name={'MainStack'}
-          component={MainStack}
-          options={{
-            headerShown: false,
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name={AppRoute.LoginPage}
+            component={LoginPage}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name={AppRoute.RegisterPage}
+            component={RegisterPage}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name={'MainStack'}
+            component={MainStack}
+            options={{
+              headerShown: false,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 };
 
