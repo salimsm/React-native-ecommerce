@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
 
   titleStyle: {
     color: AppColor.primary,
-    fontSize: 20,
+    fontSize: 12,
   },
 });
 

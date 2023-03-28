@@ -1,7 +1,7 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {AppColor} from '../../consts/colors';
-import Icon from 'react-native-vector-icons/Ionicons';
+import CustomIcon from '../custom_icon/custom_icon';
 
 interface cardInterface {
   item: {
@@ -22,8 +22,8 @@ const CustomCard = ({item, onPress}: cardInterface) => {
       <Text style={styles.nameStyle}>{item.title}</Text>
 
       <View style={styles.rowContainer}>
-        <Text style={styles.priceStyle}>${item.price}</Text>
-        <Icon name="ellipsis-vertical" size={20} />
+        <Text style={styles.priceStyle}>$ {item.price}</Text>
+        <CustomIcon icon="chevron-circle-right" size={17} color={AppColor.white}  />
       </View>
     </TouchableOpacity>
   );
@@ -32,7 +32,7 @@ const CustomCard = ({item, onPress}: cardInterface) => {
 const styles = StyleSheet.create({
   cardStyle: {
     width: '44%',
-    backgroundColor: AppColor.card,
+    backgroundColor: AppColor.primary,
     justifyContent: 'center',
     alignItems: 'flex-start',
     margin: '3%',
@@ -45,15 +45,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
     marginVertical:5,
     justifyContent: 'space-between',
+    alignItems:'center'
   },
   nameStyle: {
     fontSize: 12,
-    color: AppColor.black,
+    color: AppColor.white,
     marginLeft: 5,
+    marginRight:5,
+  maxHeight:18
   },
   priceStyle: {
-    fontSize: 17,
-    color: AppColor.black,
+    fontSize: 15,
+    color: AppColor.white,
     fontWeight: '700',
   },
 });
