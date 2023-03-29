@@ -4,5 +4,6 @@ export const AppRoute ={
         RegisterPage:'RegisterPage',
         MainPage:'MainPage',
         DetailPage:'DetailPage',
-        CartPage:'CartPage'
+        CartPage:'CartPage',
+        SearchPage:'SearchPage'
 };

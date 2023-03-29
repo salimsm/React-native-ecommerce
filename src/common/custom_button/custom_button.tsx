@@ -1,4 +1,4 @@
-import {ActivityIndicator, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {ActivityIndicator, Pressable, StyleSheet, Text} from 'react-native';
 import React from 'react';
 import { AppColor } from '../../consts/colors';
 
@@ -12,10 +12,10 @@ interface buttonInterface {
 
 const CustomButton = ({text, onPress ,isLoading = false,buttonStyle,buttonTextStyle}: buttonInterface) => {
   return (
-    <TouchableOpacity style={[styles.buttonStyle,buttonStyle]} onPress={onPress}>
+    <Pressable style={[styles.buttonStyle,buttonStyle]} onPress={onPress} >
       {isLoading && <ActivityIndicator color={AppColor.white}/>}
       <Text style={[styles.textStyle,buttonTextStyle]}>{text}</Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

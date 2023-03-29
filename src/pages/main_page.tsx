@@ -37,10 +37,13 @@ const MainPage = ({navigation}: any) => {
   const moveToCartPage = () =>{
     navigation.navigate('CartPage');
   }
-
+  
+  const moveToSearchPage = () =>{
+    navigation.navigate('SearchPage');
+  }
   return (
     <View style={styles.mainPage}>
-      <Appbar totalItem={product.totalItem} cartPage={moveToCartPage}/>
+      <Appbar totalItem={product.totalItem} cartPage={moveToCartPage} searchPage={moveToSearchPage}/>
       <View style={{flex:1}}>
       <CustomText text="Welcome back..." textStyle={styles.titleStyle} />
       {isLoading?<ActivityIndicator/>: <FlatList

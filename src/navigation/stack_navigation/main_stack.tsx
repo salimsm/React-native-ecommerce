@@ -4,6 +4,7 @@ import { AppRoute } from '../../consts/routes';
 import MainPage from '../../pages/main_page';
 import DetailPage from '../../pages/detail_page';
 import CartPage from '../../pages/cart_page';
+import SearchPage from '../../pages/search_page';
 
 
 const Stack = createNativeStackNavigator();
@@ -27,6 +28,13 @@ const Stack = createNativeStackNavigator();
         name={AppRoute.CartPage}
         component={CartPage}
         
+      />
+      <Stack.Screen
+        name={AppRoute.SearchPage}
+        component={SearchPage}
+        options={{
+          headerShown: false,
+        }}
       />
       
     </Stack.Navigator>

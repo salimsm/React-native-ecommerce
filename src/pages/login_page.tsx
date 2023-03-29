@@ -12,11 +12,10 @@ import CustomInputText from '../common/custom_input_text/custom_input_text';
 const LoginPage = ({navigation}: any) => {
   const login = () => {
     setIsLoading(true);
-    setInterval(()=>{
-      navigation.navigate('MainStack');
+    setInterval(() => {
+      navigation.navigate('BottomTab');
       setIsLoading(false);
-    },1000);
-    
+    }, 1000);
   };
   const goToRegisterPage = () => {
     navigation.navigate(AppRoute.RegisterPage);

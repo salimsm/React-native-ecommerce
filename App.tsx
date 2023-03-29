@@ -7,6 +7,7 @@ import MainStack from './src/navigation/stack_navigation/main_stack';
 import {Provider} from 'react-redux';
 import { store } from './src/redux/store/store';
 import AuthStack from './src/navigation/stack_navigation/auth_stack';
+import BottomTab from './src/navigation/bottom_tab_navigation/bottom_tab';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,12 +24,20 @@ const App = () => {
             }}
           />
           <Stack.Screen
+            name={'BottomTab'}
+            component={BottomTab}
+            options={{
+              headerShown: false,
+            }}
+          />
+          {/* <BottomTab/> */}
+          {/* <Stack.Screen
             name={'MainStack'}
             component={MainStack}
             options={{
               headerShown: false,
             }}
-          />
+          /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

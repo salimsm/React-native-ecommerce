@@ -6,21 +6,19 @@ import CustomText from '../../common/custom_text/custom_text';
 import CustomIconWithNumber from '../custom_icon_with_number/custom_icon_with_number';
 
 interface AppbarInterface {
-  // imageUrls: string[];
-  // height?: number;
-  // marginHorizontal?: number;
   totalItem:number;
   cartPage:()=>void;
+  searchPage:()=>void;
 }
 
-const Appbar = ({totalItem,cartPage}: AppbarInterface) => {
+const Appbar = ({totalItem,cartPage,searchPage}: AppbarInterface) => {
   return (
     <View style={[styles.appBar]}>
-      <CustomText text="Shopy.." />
+      <CustomText text="Shop it.." textStyle={styles.titleStyle}/>
       <View style={{flexDirection:'row'}}>
-      <CustomIcon icon="search" style={styles.iconStyle} onPress={()=>{}} size={15} />
+      <CustomIcon icon="search" style={styles.iconStyle} onPress={searchPage} size={25} />
       {/* <CustomIcon icon="shopping-basket" style={styles.iconStyle} onPress={() => {}} /> */}
-      <CustomIconWithNumber icon="shopping-basket" style={styles.iconStyle} onPress={cartPage} size={15} number={totalItem} />
+      <CustomIconWithNumber icon="shopping-basket" style={styles.iconStyle} onPress={cartPage} size={25} number={totalItem} />
       </View>
     </View>
   );
@@ -48,6 +46,10 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderWidth: 1,
   },
+  titleStyle:{
+    fontSize:20,
+    fontWeight:'700'
+  }
 });
 
 export default Appbar;

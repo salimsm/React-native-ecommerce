@@ -1,4 +1,4 @@
-import {Image, Modal, StyleSheet, Text, View} from 'react-native';
+import {Image, Modal, Pressable, StyleSheet, Text, View} from 'react-native';
 
 import React, {useEffect, useState} from 'react';
 import CustomText from '../common/custom_text/custom_text';
@@ -9,7 +9,7 @@ import {useDispatch} from 'react-redux';
 import CustomIcon from '../common/custom_icon/custom_icon';
 import {addProduct} from '../redux/slice/cart_slice';
 
-const DetailPage = ({route}: any) => {
+const DetailPage = ({navigation,route}: any) => {
   const {item} = route.params;
 
   const [quantityItem, setItemQuantity] = useState(1);
@@ -69,6 +69,7 @@ const DetailPage = ({route}: any) => {
                 itemTotalPrice: item.price * quantityItem,
               }),
             );
+            navigation.goBack();
           }}
         />
         <CustomButton
