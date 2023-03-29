@@ -1,4 +1,4 @@
-import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
 
 import React from 'react';
 import {AppColor} from '../consts/colors';
@@ -14,15 +14,13 @@ const CartPage = () => {
   
   return (
     <View style={styles.cartPage}>
-      {/* <Text>{product.totalItem}</Text> */}
-      <View style={{flex:1}}>
-        
+      <View style={{flex:1}}>        
       <FlatList
         data={product.cartItem}
         renderItem={({item}: any) => {
           return (
             <View style={{backgroundColor:AppColor.tertiary,margin:1,padding:3,alignItems:'center'}}>
-              <Text style={{fontWeight:'bold'}}>{item.title}</Text>
+              <Text style={styles.textBold}>{item.title}</Text>
               <View style={{flexDirection:'row',width:'70%',justifyContent:'space-evenly',alignItems:'center',alignSelf:'center',marginVertical:2}}>
 
               <TextInColumn title='Qty' value={item.itemQty}/>

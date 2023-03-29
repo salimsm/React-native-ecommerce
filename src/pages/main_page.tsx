@@ -19,7 +19,6 @@ const MainPage = ({navigation}: any) => {
     axiosInstance
       .get('/products')
       .then(response => {
-        console.log(response);
         if (response.status == 200) {
           setProductList(response.data);
           setIsLoading(false);
@@ -42,9 +41,7 @@ const MainPage = ({navigation}: any) => {
   return (
     <View style={styles.mainPage}>
       <Appbar totalItem={product.totalItem} cartPage={moveToCartPage}/>
-      {/* <Text>{product?.totalItem}</Text>
-      <Text>{product.totalPrice}</Text> */}
-
+      <View style={{flex:1}}>
       <CustomText text="Welcome back..." textStyle={styles.titleStyle} />
       {isLoading?<ActivityIndicator/>: <FlatList
         numColumns={2}
@@ -62,6 +59,7 @@ const MainPage = ({navigation}: any) => {
           );
         }}
       />}
+      </View>
     </View>
   );
 };
