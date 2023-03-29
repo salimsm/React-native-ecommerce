@@ -1,12 +1,13 @@
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 import React, {useState} from 'react';
 import CustomButton from '../common/custom_button/custom_button';
 import CustomText from '../common/custom_text/custom_text';
 import {AppColor} from '../consts/colors';
 import CustomInputText from '../common/custom_input_text/custom_input_text';
+import { AppRoute } from '../consts/routes';
 
-const RegisterPage = () => {
+const RegisterPage = ({navigation}:any) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   
@@ -14,6 +15,9 @@ const RegisterPage = () => {
     setIsLoading(true);
   };
 
+  const goToLoginPage = () => {
+    navigation.navigate(AppRoute.LoginPage);
+  };
   return (
     <View style={styles.registerPage}>
       <CustomText text="Register" textStyle={styles.titleStyle} />
@@ -39,6 +43,10 @@ const RegisterPage = () => {
         }}
       />
       <CustomButton text="Register" onPress={register} isLoading={isLoading} />
+      <View style={{flexDirection: 'row'}}>
+        <Text>Already have an account, </Text>
+        <CustomText text="Sign in" onPress={goToLoginPage} />
+      </View>
     </View>
   );
 };

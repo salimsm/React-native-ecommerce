@@ -7,7 +7,7 @@ import React from 'react';
 
 interface ImageInterface {
   imageUrl: string;
-  onPress: () => void;
+  onPress?: () => void;
   height: number | string;
   width: number | string;
   margin?: number;

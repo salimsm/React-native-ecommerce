@@ -52,10 +52,10 @@ const CustomInputText = ({
       {trailingIcon && (
         <TouchableOpacity onPress={iconPressed}>
           {!secureTextEntry ? (
-            <Icon name={'facebook'} size={14} color='black'></Icon>
-          ) : (
             <Icon name={'eye-slash'} size={14} color='black'></Icon>
-          )}
+            ) : (
+              <Icon name={'eye'} size={14} color='black'></Icon>
+              )}
         </TouchableOpacity>
 
       )}

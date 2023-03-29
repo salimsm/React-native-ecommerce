@@ -3,12 +3,19 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MainStack from '../stack_navigation/main_stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ProfilePage from '../../pages/profile_page';
+import {AppColor} from '../../consts/colors';
 
 const Tab = createBottomTabNavigator();
 
 const BottomTab = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={() => ({
+        tabBarStyle: {
+          backgroundColor: AppColor.primary,
+        },
+//        tabBarOptions: {},
+      })}>
       <Tab.Screen
         name="MainStack"
         component={MainStack}
@@ -25,9 +32,9 @@ const BottomTab = () => {
         component={ProfilePage}
         options={{
           headerShown: false,
-          tabBarLabel: 'person',
+          tabBarLabel: 'Profile',
           tabBarIcon: ({color, size}) => (
-            <Icon name="home" color={color} size={size} />
+            <Icon name="user-o" color={color} size={size} />
           ),
         }}
       />

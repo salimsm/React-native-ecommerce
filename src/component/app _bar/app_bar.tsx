@@ -40,14 +40,14 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   iconStyle: {
-    padding: 5,
+  padding: 5,
     margin: 5,
     marginRight:10,
     borderRadius: 50,
     borderWidth: 1,
   },
   titleStyle:{
-    fontSize:20,
+    fontSize:30,
     fontWeight:'700'
   }
 });
