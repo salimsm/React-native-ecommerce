@@ -18,13 +18,11 @@ export const cartSlice = createSlice({
   reducers: {
     addProduct(state, action: PayloadAction<any>) {
       const product = action.payload;
-      console.log(product);
-      
 
       const existingItem = state.cartItem.find(
         (item: any) => item.id == product.id,
       );
-      
+
       if (!existingItem) {
         state.cartItem.push(product);
         state.totalItem += product.itemQty;
@@ -33,10 +31,25 @@ export const cartSlice = createSlice({
         console.log('already in cart');
       }
     },
+    removeProduct(state, action: PayloadAction<any>) {
+      const product = action.payload;
+      state.cartItem = state.cartItem.filter((item)=>item.id !== product.id);
+      console.log(state.totalItem,'before');
+      state.totalItem -= product.itemQty;
+      console.log(state.totalItem);
+      
+      state.totalPrice -= product.itemTotalPrice;
+    },
+    clearProduct(state){
+      state.cartItem = [];
+      state.totalPrice = 0;
+      state.totalItem =0;
+
+    }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {addProduct} = cartSlice.actions;
+export const {addProduct,removeProduct,clearProduct} = cartSlice.actions;
 
 export default cartSlice.reducer;

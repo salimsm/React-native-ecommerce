@@ -9,17 +9,18 @@ interface AppbarInterface {
   // imageUrls: string[];
   // height?: number;
   // marginHorizontal?: number;
-  totalItem:number
+  totalItem:number;
+  cartPage:()=>void;
 }
 
-const Appbar = ({totalItem}: AppbarInterface) => {
+const Appbar = ({totalItem,cartPage}: AppbarInterface) => {
   return (
     <View style={[styles.appBar]}>
       <CustomText text="Shopy.." />
       <View style={{flexDirection:'row'}}>
-      <CustomIcon icon="search" style={styles.iconStyle} onPress={() => {}} size={15} />
+      <CustomIcon icon="search" style={styles.iconStyle} onPress={()=>{}} size={15} />
       {/* <CustomIcon icon="shopping-basket" style={styles.iconStyle} onPress={() => {}} /> */}
-      <CustomIconWithNumber icon="shopping-basket" style={styles.iconStyle} onPress={() => {}} size={15} number={totalItem} />
+      <CustomIconWithNumber icon="shopping-basket" style={styles.iconStyle} onPress={cartPage} size={15} number={totalItem} />
       </View>
     </View>
   );

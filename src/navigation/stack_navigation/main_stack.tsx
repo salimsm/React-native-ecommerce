@@ -1,14 +1,12 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { AppRoute } from '../../consts/routes';
 import MainPage from '../../pages/main_page';
 import DetailPage from '../../pages/detail_page';
+import CartPage from '../../pages/cart_page';
 
 
 const Stack = createNativeStackNavigator();
-
-
 
  const MainStack = () => {
   return (
@@ -25,6 +23,12 @@ const Stack = createNativeStackNavigator();
         component={DetailPage}
         options={({route}: any) => ({title: route?.params?.name})}
       />
+      <Stack.Screen
+        name={AppRoute.CartPage}
+        component={CartPage}
+        
+      />
+      
     </Stack.Navigator>
   );
 };

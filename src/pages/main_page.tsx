@@ -35,9 +35,13 @@ const MainPage = ({navigation}: any) => {
     getProductList();
   }, []);
 
+  const moveToCartPage = () =>{
+    navigation.navigate('CartPage');
+  }
+
   return (
     <View style={styles.mainPage}>
-      <Appbar totalItem={product.totalItem}/>
+      <Appbar totalItem={product.totalItem} cartPage={moveToCartPage}/>
       {/* <Text>{product?.totalItem}</Text>
       <Text>{product.totalPrice}</Text> */}
 
