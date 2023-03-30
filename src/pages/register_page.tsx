@@ -16,20 +16,39 @@ const RegisterPage = ({navigation}: any) => {
 
   const register = async () => {
     setIsLoading(true);
+    setError(
+      ''
+    );
     try {
       const res = await auth().createUserWithEmailAndPassword(
         'abc@gmail.com',
         '123',
       );
-      console.log('*****------response form here -----******');
-
       console.log(res);
       setIsLoading(false);
       goToLoginPage();
-    } catch (e:any) {
-      console.log(e);
+    } catch (e: any) {
+      if (e.code === 'auth/email-already-in-use') {
+        console.log('Email address is already in use!');
+        setError(
+          'Email address is already in use!',
+        );
+      } else if (e.code === 'auth/invalid-email') {
+        console.log('Email address is invalid!');
+        setError(
+          'Email address is invalid!',
+        );
+      } else if (e.code === 'auth/weak-password') {
+        console.log('Password is weak should be > 6!');
+        setError(
+          'Password is weak should be > 6!',
+        );
+      }
       setIsLoading(false);
-      setError('Error, please check email or \n password should be >6 character');
+      // >>> common error
+      // setError(
+      //   'Error, please check email or \n password should be >6 character',
+      // );
     }
   };
 
@@ -60,7 +79,11 @@ const RegisterPage = ({navigation}: any) => {
           setShowPassword(!showPassword);
         }}
       />
-      {error?<Text style={{color:'red',marginBottom:4}}>{error}</Text>:<></>}
+      {error ? (
+        <Text style={{color: 'red', marginBottom: 4}}>{error}</Text>
+      ) : (
+        <></>
+      )}
       <CustomButton text="Register" onPress={register} isLoading={isLoading} />
       <View style={{flexDirection: 'row'}}>
         <Text>Already have an account, </Text>
