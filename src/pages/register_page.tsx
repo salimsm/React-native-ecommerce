@@ -5,14 +5,32 @@ import CustomButton from '../common/custom_button/custom_button';
 import CustomText from '../common/custom_text/custom_text';
 import {AppColor} from '../consts/colors';
 import CustomInputText from '../common/custom_input_text/custom_input_text';
-import { AppRoute } from '../consts/routes';
+import {AppRoute} from '../consts/routes';
 
-const RegisterPage = ({navigation}:any) => {
+import auth from '@react-native-firebase/auth';
+
+const RegisterPage = ({navigation}: any) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  
-  const register = () => {
+  const [error, setError] = useState<String>('');
+
+  const register = async () => {
     setIsLoading(true);
+    try {
+      const res = await auth().createUserWithEmailAndPassword(
+        'abc@gmail.com',
+        '123',
+      );
+      console.log('*****------response form here -----******');
+
+      console.log(res);
+      setIsLoading(false);
+      goToLoginPage();
+    } catch (e:any) {
+      console.log(e);
+      setIsLoading(false);
+      setError('Error, please check email or \n password should be >6 character');
+    }
   };
 
   const goToLoginPage = () => {
@@ -23,7 +41,7 @@ const RegisterPage = ({navigation}:any) => {
       <CustomText text="Register" textStyle={styles.titleStyle} />
 
       <CustomInputText
-        placeholder="User"
+        placeholder="Email"
         onChangeText={value => {
           console.log(value);
         }}
@@ -42,6 +60,7 @@ const RegisterPage = ({navigation}:any) => {
           setShowPassword(!showPassword);
         }}
       />
+      {error?<Text style={{color:'red',marginBottom:4}}>{error}</Text>:<></>}
       <CustomButton text="Register" onPress={register} isLoading={isLoading} />
       <View style={{flexDirection: 'row'}}>
         <Text>Already have an account, </Text>

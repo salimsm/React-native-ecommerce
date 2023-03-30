@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "183412923819",
+    "project_id": "rnshop-3888a",
+    "storage_bucket": "rnshop-3888a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183412923819:android:78cd6eb125231eac8606ee",
+        "android_client_info": {
+          "package_name": "com.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "183412923819-312tchajgfh8gn335b4irt1638t67tht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBI0b7K_PXd9zFDNgohbDd7nWVGEMLEfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "183412923819-312tchajgfh8gn335b4irt1638t67tht.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
