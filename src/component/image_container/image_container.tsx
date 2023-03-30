@@ -55,12 +55,12 @@ interface imageModelInterface {
 
 const ImageModel = ({imageUrl, visible, toggle}: imageModelInterface) => {
   return (
-    <View>
+    <>
       <Modal visible={visible} onRequestClose={toggle} >
         <View
           style={{
-            // backgroundColor: 'green',
             width: '100%',
+            height:'80%',
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
@@ -74,13 +74,14 @@ const ImageModel = ({imageUrl, visible, toggle}: imageModelInterface) => {
           />
           <CustomImage
             imageUrl={imageUrl}
-            height={400}
+            
+            height={'90%'}
             onPress={() => {}}
             width={300}
           />
         </View>
       </Modal>
-    </View>
+    </>
   );
 };
 
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   iconStyle: {
-    padding: 5,
+    // padding: 5,
     margin:5,
     borderRadius: 50,
     borderWidth: 1,

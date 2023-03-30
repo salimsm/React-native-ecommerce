@@ -1,5 +1,5 @@
-import {Button, FlatList, Modal, StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
+import {StyleSheet, View} from 'react-native';
+import React from 'react';
 import {AppColor} from '../../consts/colors';
 import CustomIcon from '../../common/custom_icon/custom_icon';
 import CustomText from '../../common/custom_text/custom_text';
@@ -16,9 +16,9 @@ const Appbar = ({totalItem,cartPage,searchPage}: AppbarInterface) => {
     <View style={[styles.appBar]}>
       <CustomText text="Shop it.." textStyle={styles.titleStyle}/>
       <View style={{flexDirection:'row'}}>
-      <CustomIcon icon="search" style={styles.iconStyle} onPress={searchPage} size={25} />
+      <CustomIcon icon="search" style={styles.iconStyle} onPress={searchPage} size={20} />
       {/* <CustomIcon icon="shopping-basket" style={styles.iconStyle} onPress={() => {}} /> */}
-      <CustomIconWithNumber icon="shopping-basket" style={styles.iconStyle} onPress={cartPage} size={25} number={totalItem} />
+      <CustomIconWithNumber icon="shopping-basket" style={styles.iconStyle} onPress={cartPage} size={20} number={totalItem} />
       </View>
     </View>
   );
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   iconStyle: {
-  padding: 5,
+  //padding: 5,
     margin: 5,
     marginRight:10,
     borderRadius: 50,

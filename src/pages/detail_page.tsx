@@ -1,4 +1,4 @@
-import {Image, Modal, Pressable, StyleSheet, Text, View} from 'react-native';
+import {Image, Modal, Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
 
 import React, {useEffect, useState} from 'react';
 import CustomText from '../common/custom_text/custom_text';
@@ -11,9 +11,9 @@ import {addProduct} from '../redux/slice/cart_slice';
 
 const DetailPage = ({navigation,route}: any) => {
   const {item} = route.params;
-
   const [quantityItem, setItemQuantity] = useState(1);
   const dispatch = useDispatch();
+
   const increment = () => {
     if (quantityItem < 6) {
       setItemQuantity(quantityItem + 1);
@@ -24,11 +24,9 @@ const DetailPage = ({navigation,route}: any) => {
       setItemQuantity(quantityItem - 1);
     }
   };
-  console.log(item);
-
-  console.log('detail page conponent');
 
   return (
+    <ScrollView>
     <View style={styles.detailPage}>
       <Image
         source={{uri: item?.images[0]}}
@@ -80,12 +78,11 @@ const DetailPage = ({navigation,route}: any) => {
         />
       </View>
     </View>
+    </ScrollView>
   );
 };
 
 const QunatitySelectComponent = ({quantity, increment, decrement}: any) => {
-  console.log('quantity conponent');
-
   return (
     <View style={[styles.quantitySelectStyle]}>
       <CustomIcon
@@ -142,7 +139,7 @@ const styles = StyleSheet.create({
   quantityIconStyle: {
     borderRadius: 8,
     backgroundColor: AppColor.primary,
-    padding: 8,
+    // padding: 8,
   },
 });
 

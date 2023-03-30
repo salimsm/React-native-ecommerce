@@ -10,19 +10,19 @@ const AuthStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-            name={AppRoute.LoginPage}
-            component={LoginPage}
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen
-            name={AppRoute.RegisterPage}
-            component={RegisterPage}
-            options={{
-              headerShown: false,
-            }}
-          />
+        name={AppRoute.LoginPage}
+        component={LoginPage}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name={AppRoute.RegisterPage}
+        component={RegisterPage}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   );
 };

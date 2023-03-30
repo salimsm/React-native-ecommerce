@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     alignItems:'center'
   },
   nameStyle: {
-    fontSize: 12,
+    fontSize: 14,
     color: AppColor.white,
     marginLeft: 5,
     marginRight:5,

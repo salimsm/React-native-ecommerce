@@ -14,7 +14,7 @@ const BottomTab = () => {
         tabBarStyle: {
           backgroundColor: AppColor.primary,
         },
-//        tabBarOptions: {},
+        tabBarActiveTintColor:AppColor.white,
       })}>
       <Tab.Screen
         name="MainStack"

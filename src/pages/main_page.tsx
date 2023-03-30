@@ -49,10 +49,14 @@ const MainPage = ({navigation}: any) => {
         searchPage={moveToSearchPage}
       />
       <View style={{flex: 1}}>
-        <CustomText text="Welcome back..." textStyle={styles.titleStyle} />
         {isLoading ? (
-          <ActivityIndicator />
-        ) : (
+<>
+<CustomText text="Welcome back..." textStyle={styles.titleStyle} />
+
+<ActivityIndicator />
+
+</>
+          ) : (
           <FlatList
             numColumns={2}
             data={productList}
