@@ -1,5 +1,4 @@
 import {StyleSheet, Text, View} from 'react-native';
-
 import React, {useState} from 'react';
 import CustomButton from '../common/custom_button/custom_button';
 import CustomText from '../common/custom_text/custom_text';
@@ -9,6 +8,12 @@ import {AppRoute} from '../consts/routes';
 
 import auth from '@react-native-firebase/auth';
 
+
+/*
+doc url for create user
+https://rnfirebase.io/auth/usage#emailpassword-sign-in
+*/
+
 const RegisterPage = ({navigation}: any) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -16,13 +21,11 @@ const RegisterPage = ({navigation}: any) => {
 
   const register = async () => {
     setIsLoading(true);
-    setError(
-      ''
-    );
+    setError('');
     try {
       const res = await auth().createUserWithEmailAndPassword(
-        'abc@gmail.com',
-        '123',
+        'jame@gmail.com',
+        '1234567',
       );
       console.log(res);
       setIsLoading(false);
@@ -30,19 +33,13 @@ const RegisterPage = ({navigation}: any) => {
     } catch (e: any) {
       if (e.code === 'auth/email-already-in-use') {
         console.log('Email address is already in use!');
-        setError(
-          'Email address is already in use!',
-        );
+        setError('Email address is already in use!');
       } else if (e.code === 'auth/invalid-email') {
         console.log('Email address is invalid!');
-        setError(
-          'Email address is invalid!',
-        );
+        setError('Email address is invalid!');
       } else if (e.code === 'auth/weak-password') {
         console.log('Password is weak should be > 6!');
-        setError(
-          'Password is weak should be > 6!',
-        );
+        setError('Password is weak should be > 6!');
       }
       setIsLoading(false);
       // >>> common error
@@ -56,7 +53,7 @@ const RegisterPage = ({navigation}: any) => {
     navigation.navigate(AppRoute.LoginPage);
   };
   return (
-    <View style={styles.registerPage}>
+    <View style={styles.container}>
       <CustomText text="Register" textStyle={styles.titleStyle} />
 
       <CustomInputText
@@ -94,7 +91,7 @@ const RegisterPage = ({navigation}: any) => {
 };
 
 const styles = StyleSheet.create({
-  registerPage: {
+  container: {
     flex: 1,
     backgroundColor: AppColor.background,
     justifyContent: 'center',
