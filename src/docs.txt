@@ -1,0 +1,37 @@
+
+export const AppRoute ={
+        LoginPage:'LoginPage',
+        RegisterPage:'RegisterPage',
+        MainPage:'MainPage',
+        DetailPage:'DetailPage',
+        CartPage:'CartPage',
+        SearchPage:'SearchPage'
+};
+
+
+https://oblador.github.io/react-native-vector-icons/
+
+
+icon - 
+https://oblador.github.io/react-native-vector-icons/
+
+        "react-native-vector-icons"
+        "@types/react-native-vector-icons"
+
+navigtaion -
+https://reactnavigation.org/docs/getting-started/
+        
+        "react-native-safe-area-context": "^4.5.0",
+        "react-native-screens": "^3.20.0",
+
+        "@react-navigation/native": "^6.1.6",
+        
+        "@react-navigation/native-stack": "^6.9.12",
+       
+        "@react-navigation/bottom-tabs": "^6.5.7",
+
+redux-toolkit -
+
+
+
+
