@@ -21,20 +21,21 @@ const LoginPage = ({navigation}: any) => {
   const login = async () => {
     setIsLoading(true);
     setError('');
+    navigation.navigate('BottomTab');
 
-    try {
-      const res = await auth().signInWithEmailAndPassword(
-        'jame@gmail.com',
-        '1234567',
-      );
-      console.log(res);
-      setIsLoading(false);
-      navigation.navigate('BottomTab');
-    } catch (e: any) {
-      console.log(e);
-      setIsLoading(false);
-      setError(e.code);
-    }
+    // try {
+    //   const res = await auth().signInWithEmailAndPassword(
+    //     'jame@gmail.com',
+    //     '1234567',
+    //   );
+    //   console.log(res);
+    //   setIsLoading(false);
+    //   navigation.navigate('BottomTab');
+    // } catch (e: any) {
+    //   console.log(e);
+    //   setIsLoading(false);
+    //   setError(e.code);
+    // }
   };
   const goToRegisterPage = () => {
     navigation.navigate(AppRoute.RegisterPage);

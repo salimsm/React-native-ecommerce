@@ -1,14 +1,24 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Button, Image, StyleSheet, Text, View} from 'react-native';
 
 import React from 'react';
 import CustomText from '../common/custom_text/custom_text';
 import {AppColor} from '../consts/colors';
 import CustomImage from '../common/custom_image/custom_image';
+import LoginPage from './login_page';
+import { AppRoute } from '../consts/routes';
+import CustomButton from '../common/custom_button/custom_button';
 
-const ProfilePage = () => { 
+const ProfilePage = ({navigation}:any) => { 
 console.log('profile');
 const imageUrl='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png';
-  return (
+
+const logout = ()=>{
+  console.log('logout function called');
+  
+  navigation.navigate(AppRoute.LoginPage);
+}
+
+return (
     <View style={styles.profilePage}>
       <View style={{flex:1,backgroundColor:AppColor.primary}}>
       {/* <CustomText text="Profile" textStyle={styles.titleStyle} /> */}
@@ -19,7 +29,7 @@ const imageUrl='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-pic
       <CustomText text="Jhon Smith" textStyle={styles.medium} />
       <CustomText text="Profile" textStyle={styles.small} />
       <CustomText text="Profile" textStyle={styles.small} />
-      
+      <CustomButton text='Logout' onPress={logout}/>
       </View>
       
     </View>
