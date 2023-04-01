@@ -10,32 +10,38 @@ import CustomInputText from '../common/custom_input_text/custom_input_text';
 import CustomIcon from '../common/custom_icon/custom_icon';
 
 import auth from '@react-native-firebase/auth';
+import {useDispatch} from 'react-redux';
+import {updateUser} from '../redux/slice/user_slice';
 
 const LoginPage = ({navigation}: any) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [error, setError] = useState<String>('');
-  const [email, setEmail] = useState<String>('');
-  const [password, setPassword] = useState<String>('');
+  const [email, setEmail] = useState<string>('jame@gmail.com');
+  const [password, setPassword] = useState<string>('1234567');
+
+  const dispatch = useDispatch();
 
   const login = async () => {
     setIsLoading(true);
     setError('');
-    navigation.navigate('BottomTab');
+    try {
+      const res = await auth().signInWithEmailAndPassword(email, password);
+      console.log(res);
+      setIsLoading(false);
+      dispatch(
+        updateUser({
+          email: res.user.email,
+          uid:res.user.uid
+        }),
+      );
 
-    // try {
-    //   const res = await auth().signInWithEmailAndPassword(
-    //     'jame@gmail.com',
-    //     '1234567',
-    //   );
-    //   console.log(res);
-    //   setIsLoading(false);
-    //   navigation.navigate('BottomTab');
-    // } catch (e: any) {
-    //   console.log(e);
-    //   setIsLoading(false);
-    //   setError(e.code);
-    // }
+      navigation.navigate('BottomTab');
+    } catch (e: any) {
+      console.log(e);
+      setIsLoading(false);
+      setError(e.code);
+    }
   };
   const goToRegisterPage = () => {
     navigation.navigate(AppRoute.RegisterPage);
