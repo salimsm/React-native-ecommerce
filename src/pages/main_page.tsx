@@ -20,6 +20,8 @@ const MainPage = ({navigation}: any) => {
       .get('/products')
       .then(response => {
         if (response.status == 200) {
+          console.log(response.data);
+          
           setProductList(response.data);
           setIsLoading(false);
         }
@@ -50,13 +52,12 @@ const MainPage = ({navigation}: any) => {
       />
       <View style={{flex: 1}}>
         {isLoading ? (
-<>
-<CustomText text="Welcome back..." textStyle={styles.titleStyle} />
+          <>
+            <CustomText text="Welcome back..." textStyle={styles.titleStyle} />
 
-<ActivityIndicator />
-
-</>
-          ) : (
+            <ActivityIndicator />
+          </>
+        ) : (
           <FlatList
             numColumns={2}
             data={productList}

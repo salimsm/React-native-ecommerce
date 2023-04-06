@@ -5,7 +5,7 @@ import database from '@react-native-firebase/database';
 import {AppColor} from '../consts/colors';
 import {useDispatch, useSelector} from 'react-redux';
 import CustomIcon from '../common/custom_icon/custom_icon';
-import {removeProduct} from '../redux/slice/cart_slice';
+import {clearProduct, removeProduct} from '../redux/slice/cart_slice';
 import CustomButton from '../common/custom_button/custom_button';
 
 import {getDate, getTime} from '../helper/helper';
@@ -41,12 +41,13 @@ const CartPage = () => {
           time: t,
         })
         .then(() => console.log('Data set.'));
+        dispatch(clearProduct());
     }
   };
 
   return (
-    <View style={styles.cartPage}>
-      <View style={{flex: 1}}>
+    <View style={styles.container}>
+      <View style={styles.listContainer}>
         <FlatList
           data={product.cartItem}
           renderItem={({item}: any) => {
@@ -84,6 +85,7 @@ const CartPage = () => {
           }}
         />
       </View>
+      
       <View style={{alignItems: 'center', marginVertical: 4}}>
         <Text style={styles.textBold}>Total Price: ${product.totalPrice}</Text>
         <CustomButton text="Checkout" onPress={storeCheckout} />
@@ -91,6 +93,7 @@ const CartPage = () => {
     </View>
   );
 };
+
 
 const TextInColumn = ({title, value}: any) => {
   return (
@@ -102,8 +105,11 @@ const TextInColumn = ({title, value}: any) => {
 };
 
 const styles = StyleSheet.create({
-  cartPage: {
+  container: {
     backgroundColor: AppColor.background,
+    flex: 1,
+  },
+  listContainer:{
     flex: 1,
   },
   textBold: {fontWeight: 'bold'},
