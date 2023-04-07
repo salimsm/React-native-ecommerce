@@ -23,7 +23,11 @@ const CustomCard = ({item, onPress}: cardInterface) => {
 
       <View style={styles.rowContainer}>
         <Text style={styles.priceStyle}>$ {item.price}</Text>
-        <CustomIcon icon="chevron-circle-right" size={17} color={AppColor.white}  />
+        <CustomIcon
+          icon="chevron-circle-right"
+          size={17}
+          color={AppColor.white}
+        />
       </View>
     </TouchableOpacity>
   );
@@ -36,23 +40,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-start',
     margin: '3%',
-    borderBottomLeftRadius:10,
-    borderBottomRightRadius:10
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
   },
   rowContainer: {
     flexDirection: 'row',
     width: '100%',
     paddingHorizontal: 5,
-    marginVertical:5,
+    marginVertical: 5,
     justifyContent: 'space-between',
-    alignItems:'center'
+    alignItems: 'center',
   },
   nameStyle: {
     fontSize: 14,
     color: AppColor.white,
     marginLeft: 5,
-    marginRight:5,
-  maxHeight:18
+    marginRight: 5,
+    maxHeight: 18,
   },
   priceStyle: {
     fontSize: 15,

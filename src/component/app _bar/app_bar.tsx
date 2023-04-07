@@ -48,7 +48,9 @@ const styles = StyleSheet.create({
   },
   titleStyle:{
     fontSize:30,
-    fontWeight:'700'
+    //fontWeight:'300',
+    fontFamily:'Laila-Medium'
+
   }
 });
 

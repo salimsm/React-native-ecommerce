@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Laila-Light.ttf",
+      "sha1": "157903c58679e1b8e71ca515e7e001fba722d05f"
+    },
+    {
+      "path": "assets/fonts/Laila-Medium.ttf",
+      "sha1": "78748dfe35a05eb316dacb93d41541339b9502f1"
+    },
+    {
+      "path": "assets/fonts/Laila-Regular.ttf",
+      "sha1": "fab8dcdeacb178dd7a1eccc76768bd810b7d5f1d"
+    }
+  ]
+}

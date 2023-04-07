@@ -91,7 +91,9 @@ const styles = StyleSheet.create({
 
   titleStyle: {
     color: AppColor.primary,
-    fontSize: 12,
+    fontSize: 17,
+    fontFamily:'Laila-Medium'
+
   },
 });
 
