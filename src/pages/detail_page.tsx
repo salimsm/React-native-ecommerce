@@ -11,6 +11,8 @@ import {addProduct} from '../redux/slice/cart_slice';
 
 const DetailPage = ({navigation,route}: any) => {
   const {item} = route.params;
+  console.log(item);
+  
   const [quantityItem, setItemQuantity] = useState(1);
   const dispatch = useDispatch();
 
@@ -65,6 +67,7 @@ const DetailPage = ({navigation,route}: any) => {
                 price: item.price,
                 itemQty: quantityItem,
                 itemTotalPrice: item.price * quantityItem,
+               imageUrl:item.category.image
               }),
             );
             navigation.goBack();

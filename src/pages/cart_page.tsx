@@ -10,6 +10,7 @@ import CustomButton from '../common/custom_button/custom_button';
 
 import {getDate, getTime} from '../helper/helper';
 import TextInColumn from '../component/text_in_column/text_in_column';
+import CustomImage from '../common/custom_image/custom_image';
 
 const CartPage = () => {
   const product = useSelector((state: any) => state.cart);
@@ -60,7 +61,6 @@ const CartPage = () => {
 
   return (
     <View style={styles.container}>
-      
       <FlatList
         data={product.cartItem}
         renderItem={({item}: any) => (
@@ -69,10 +69,11 @@ const CartPage = () => {
       />
 
       <View style={styles.bottomContainer}>
-        <Text style={styles.totalStyle}>Total Price: ${product.totalPrice}</Text>
+        <Text style={styles.totalStyle}>
+          Total Price: ${product.totalPrice}
+        </Text>
         <CustomButton text="Checkout" onPress={storeCheckout} />
       </View>
-
     </View>
   );
 };
@@ -80,9 +81,12 @@ const CartPage = () => {
 const CartPageCard = ({item, dispatch}: any) => {
   return (
     <View style={styles.cartContainer}>
-      <Text style={styles.title}>{item.title}</Text>
-
+        <CustomImage imageUrl={item.imageUrl} height={60} width={60} margin={5}/>
+<View>
+        <Text style={styles.title}>{item.title}</Text>
+      
       <View style={styles.subCartContainer}>
+
         <TextInColumn title="Qty" value={item.itemQty} />
         <TextInColumn title="Price($)" value={item.price} />
         <TextInColumn title="Total" value={item.itemTotalPrice} />
@@ -94,7 +98,7 @@ const CartPageCard = ({item, dispatch}: any) => {
             dispatch(removeProduct(item));
           }}
         />
-
+      </View>
       </View>
     </View>
   );
@@ -108,25 +112,25 @@ const styles = StyleSheet.create({
   cartContainer: {
     backgroundColor: AppColor.card,
     marginHorizontal: 1,
-    marginVertical:2,
+    marginVertical: 2,
+
+    flexDirection:'row',
 
     padding: 3,
     alignItems: 'center',
 
-    borderLeftWidth:4,
-
-
+    borderLeftWidth: 4,
   },
   subCartContainer: {
     flexDirection: 'row',
-    width: '70%',
+    width: '80%',
     justifyContent: 'space-evenly',
     alignItems: 'center',
     marginVertical: 2,
   },
-  totalStyle: {fontWeight: 'bold',fontSize:17},
-  title:{fontWeight: 'bold',fontSize:17},
-  bottomContainer:{alignItems: 'center', marginVertical: 4}
+  totalStyle: {fontWeight: 'bold', fontSize: 17},
+  title: {fontWeight: 'bold', fontSize: 17},
+  bottomContainer: {alignItems: 'center', marginVertical: 4},
 });
 
 export default CartPage;
