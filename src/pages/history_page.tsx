@@ -31,7 +31,7 @@ const HistoryPage = () => {
       .once('value')
       .then(snapshot => {
         const data = snapshot.val();
-        const arrayData = Object.entries(data).map(([key, value]) => ({
+        const arrayData = Object.entries(data).map(([key, value]:any) => ({
           ...value,
           id: key,
         }));
