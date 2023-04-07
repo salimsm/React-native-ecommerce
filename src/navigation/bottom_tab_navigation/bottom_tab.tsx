@@ -1,8 +1,9 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import MainStack from '../stack_navigation/main_stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import MainStack from '../stack_navigation/main_stack';
 import ProfilePage from '../../pages/profile_page';
+import HistoryPage from '../../pages/history_page';
 import {AppColor} from '../../consts/colors';
 
 const Tab = createBottomTabNavigator();
@@ -14,7 +15,7 @@ const BottomTab = () => {
         tabBarStyle: {
           backgroundColor: AppColor.primary,
         },
-        tabBarActiveTintColor:AppColor.white,
+        tabBarActiveTintColor: AppColor.white,
       })}>
       <Tab.Screen
         name="MainStack"
@@ -24,6 +25,17 @@ const BottomTab = () => {
           tabBarLabel: 'Home',
           tabBarIcon: ({color, size}) => (
             <Icon name="home" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="HistoryPage"
+        component={HistoryPage}
+        options={{
+          headerShown: false,
+          tabBarLabel: 'History',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="history" color={color} size={size} />
           ),
         }}
       />
@@ -41,5 +53,4 @@ const BottomTab = () => {
     </Tab.Navigator>
   );
 };
-
 export default BottomTab;

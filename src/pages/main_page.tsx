@@ -20,7 +20,7 @@ const MainPage = ({navigation}: any) => {
       .get('/products')
       .then(response => {
         if (response.status == 200) {
-          console.log(response.data);
+          // console.log(response.data);
           
           setProductList(response.data);
           setIsLoading(false);
