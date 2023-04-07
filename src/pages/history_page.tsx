@@ -47,7 +47,10 @@ const HistoryPage = () => {
   return (
     <View style={styles.container}>
       {isLoading ? (
+        <View style={styles.loadingContianer}>
         <ActivityIndicator />
+        <Text>Please wait ...</Text>
+        </View>
       ) : (
         <FlatList
           data={userHistory}
@@ -83,6 +86,11 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: AppColor.background,
     flex: 1,
+  },
+  loadingContianer:{
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center'
   },
   cartContainer: {
     backgroundColor: AppColor.card,
