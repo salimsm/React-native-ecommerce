@@ -29,8 +29,8 @@ const LoginPage = ({navigation}: any) => {
       const res = await auth().signInWithEmailAndPassword(email, password);
       console.log(res);
       setIsLoading(false);
-      storage.set('user.email',res.user.uid!);
-      storage.set('user.uid',res.user.email!);
+      storage.set('user.uid',res.user.uid!);
+      storage.set('user.email',res.user.email!);
       dispatch(
         updateUser({
           email: res.user.email,

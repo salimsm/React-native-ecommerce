@@ -6,6 +6,7 @@ import CustomText from '../common/custom_text/custom_text';
 import CustomButton from '../common/custom_button/custom_button';
 import {AppColor} from '../consts/colors';
 import {removeUser} from '../redux/slice/user_slice';
+import { storage } from '../mmkv-storage/mmkv_storage';
 const imageUrl =
   'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png';
 
@@ -14,7 +15,10 @@ const ProfilePage = () => {
   const dispatch = useDispatch();
 
   const logout = () => {
+    storage.delete('user.email')
+    storage.delete('user.uid')
     dispatch(removeUser());
+
   };
 
   return (

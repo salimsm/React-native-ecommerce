@@ -19,7 +19,8 @@ const InitialPage = () => {
   }, []);
 
   const user = useSelector((state: RootState) => state.user);
-
+  console.log(user,'user form initial');
+  
   return (
     <NavigationContainer>
       <SafeAreaView style={{flex: 1}}>

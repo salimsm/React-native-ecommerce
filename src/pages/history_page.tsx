@@ -21,6 +21,7 @@ interface IHistory {
 }
 const HistoryPage = () => {
   const user = useSelector((state: any) => state.user);
+console.log(user.uid);
 
   const [userHistory, setUserHistory] = useState<IHistory[]>();
   const [isLoading, setIsLoading] = useState(true);
