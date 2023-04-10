@@ -3,18 +3,18 @@ import {Button, Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import CustomText from '../common/custom_text/custom_text';
 import {AppColor} from '../consts/colors';
-import {AppRoute} from '../consts/routes';
 import CustomButton from '../common/custom_button/custom_button';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import { removeUser } from '../redux/slice/user_slice';
 
-const ProfilePage = ({navigation}: any) => {
+const ProfilePage = () => {
   const user = useSelector((state: any) => state.user);
-
+  const dispatch =useDispatch();
   const imageUrl =
     'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png';
 
   const logout = () => {
-    navigation.navigate(AppRoute.LoginPage);
+    dispatch(removeUser());
   };
 
   return (
@@ -50,8 +50,6 @@ const styles = StyleSheet.create({
   profilePage: {
     flex: 1,
     backgroundColor: AppColor.background,
-    // justifyContent: 'center',
-    // alignItems: 'center',
   },
   medium: {
     color: AppColor.primary,

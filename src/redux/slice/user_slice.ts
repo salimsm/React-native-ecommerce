@@ -17,14 +17,18 @@ export const userSlice = createSlice({
     updateUser(state, action: PayloadAction<any>) {
       const user = action.payload;
       console.log(user,'user from userSlice //////');
-      
+
       state.email = user.email;
       state.uid = user.uid;
     },
+    removeUser(state){
+      state.email='';
+      state.uid='';
+    }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {updateUser} = userSlice.actions;
+export const {updateUser,removeUser} = userSlice.actions;
 
 export default userSlice.reducer;

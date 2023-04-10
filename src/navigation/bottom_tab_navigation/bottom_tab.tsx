@@ -9,6 +9,8 @@ import {AppColor} from '../../consts/colors';
 const Tab = createBottomTabNavigator();
 
 const BottomTab = () => {
+  console.log('Bottom Tab');
+
   return (
     <Tab.Navigator
       screenOptions={() => ({

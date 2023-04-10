@@ -7,6 +7,8 @@ import RegisterPage from '../../pages/register_page';
 const Stack = createNativeStackNavigator();
 
 const AuthStack = () => {
+  console.log('Auth Stack');
+
   return (
     <Stack.Navigator>
       <Stack.Screen

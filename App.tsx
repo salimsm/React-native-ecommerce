@@ -6,14 +6,16 @@ import {Provider} from 'react-redux';
 import {store} from './src/redux/store/store';
 import AuthStack from './src/navigation/stack_navigation/auth_stack';
 import BottomTab from './src/navigation/bottom_tab_navigation/bottom_tab';
+import InitialScreen from './src/pages/initial_page';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator>
+        <InitialScreen />
+
+        {/* <Stack.Navigator>
           <Stack.Screen
             name={'AuthStack'}
             component={AuthStack}
@@ -28,8 +30,8 @@ const App = () => {
               headerShown: false,
             }}
           />
-        </Stack.Navigator>
-      </NavigationContainer>
+        </Stack.Navigator> */}
+      {/* </NavigationContainer> */}
     </Provider>
   );
 };

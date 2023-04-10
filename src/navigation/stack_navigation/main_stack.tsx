@@ -5,6 +5,7 @@ import MainPage from '../../pages/main_page';
 import DetailPage from '../../pages/detail_page';
 import CartPage from '../../pages/cart_page';
 import SearchPage from '../../pages/search_page';
+import { NavigationContainer } from '@react-navigation/native';
 
 const Stack = createNativeStackNavigator();
 

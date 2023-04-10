@@ -12,6 +12,7 @@ import CustomIcon from '../common/custom_icon/custom_icon';
 import auth from '@react-native-firebase/auth';
 import {useDispatch} from 'react-redux';
 import {updateUser} from '../redux/slice/user_slice';
+import { storage } from '../mmkv-storage/mmkv_storage';
 
 const LoginPage = ({navigation}: any) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -29,14 +30,16 @@ const LoginPage = ({navigation}: any) => {
       const res = await auth().signInWithEmailAndPassword(email, password);
       console.log(res);
       setIsLoading(false);
+      storage.set('user.email',res.user.uid!);
+      storage.set('user.uid',res.user.email!);
       dispatch(
         updateUser({
           email: res.user.email,
           uid:res.user.uid
         }),
       );
+      
 
-      navigation.navigate('BottomTab');
     } catch (e: any) {
       console.log(e);
       setIsLoading(false);
