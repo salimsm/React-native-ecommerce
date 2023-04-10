@@ -1,12 +1,5 @@
-import {
-  Button,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import {SafeAreaView} from 'react-native';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {storage} from '../mmkv-storage/mmkv_storage';
 import {RootState} from '../redux/store/store';
@@ -15,15 +8,15 @@ import BottomTab from '../navigation/bottom_tab_navigation/bottom_tab';
 import {NavigationContainer} from '@react-navigation/native';
 import {updateUser} from '../redux/slice/user_slice';
 
-const InitialScreen = () => {
+const InitialPage = () => {
   console.log('Initial Screen');
   const userEmail = storage.getString('user.email');
   const userUid = storage.getString('user.uid');
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(updateUser({email:userEmail,uid:userUid}));
-  }, [])
+    dispatch(updateUser({email: userEmail, uid: userUid}));
+  }, []);
 
   const user = useSelector((state: RootState) => state.user);
 
@@ -36,4 +29,4 @@ const InitialScreen = () => {
   );
 };
 
-export default InitialScreen;
+export default InitialPage;

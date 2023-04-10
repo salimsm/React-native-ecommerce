@@ -1,18 +1,16 @@
-import {Image, Modal, Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {Image,ScrollView, StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {useDispatch} from 'react-redux';
 
-import React, {useEffect, useState} from 'react';
 import CustomText from '../common/custom_text/custom_text';
-import {AppColor} from '../consts/colors';
 import CustomButton from '../common/custom_button/custom_button';
 import ImageContainer from '../component/image_container/image_container';
-import {useDispatch} from 'react-redux';
 import CustomIcon from '../common/custom_icon/custom_icon';
+import {AppColor} from '../consts/colors';
 import {addProduct} from '../redux/slice/cart_slice';
 
 const DetailPage = ({navigation,route}: any) => {
-  const {item} = route.params;
-  console.log(item);
-  
+  const {item} = route.params;  
   const [quantityItem, setItemQuantity] = useState(1);
   const dispatch = useDispatch();
 
@@ -142,7 +140,6 @@ const styles = StyleSheet.create({
   quantityIconStyle: {
     borderRadius: 8,
     backgroundColor: AppColor.primary,
-    // padding: 8,
   },
 });
 

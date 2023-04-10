@@ -1,11 +1,10 @@
 import {Image, StyleSheet, View} from 'react-native';
-
 import React from 'react';
+
 import {AppColor} from '../consts/colors';
 
 const ImagePage = ({route}: any) => {
   const {item} = route.params;
-
   return (
     <View style={styles.imagePage}>
       <Image

@@ -1,17 +1,17 @@
-import {Button, Image, StyleSheet, Text, View} from 'react-native';
-
+import {Image, StyleSheet, View} from 'react-native';
 import React from 'react';
-import CustomText from '../common/custom_text/custom_text';
-import {AppColor} from '../consts/colors';
-import CustomButton from '../common/custom_button/custom_button';
 import {useDispatch, useSelector} from 'react-redux';
-import { removeUser } from '../redux/slice/user_slice';
+
+import CustomText from '../common/custom_text/custom_text';
+import CustomButton from '../common/custom_button/custom_button';
+import {AppColor} from '../consts/colors';
+import {removeUser} from '../redux/slice/user_slice';
+const imageUrl =
+  'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png';
 
 const ProfilePage = () => {
   const user = useSelector((state: any) => state.user);
-  const dispatch =useDispatch();
-  const imageUrl =
-    'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png';
+  const dispatch = useDispatch();
 
   const logout = () => {
     dispatch(removeUser());
@@ -20,9 +20,10 @@ const ProfilePage = () => {
   return (
     <View style={styles.profilePage}>
       <View style={{flex: 1, backgroundColor: AppColor.primary}}>
-        <CustomText text="Profile" 
-        // textStyle={styles.titleStyle}
-         />
+        <CustomText
+          text="Profile"
+          // textStyle={styles.titleStyle}
+        />
       </View>
       <View style={{flex: 2, alignItems: 'center'}}>
         <Image

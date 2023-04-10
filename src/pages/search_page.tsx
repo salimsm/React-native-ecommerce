@@ -1,10 +1,6 @@
-import {
-  FlatList,
-  StyleSheet,
-  View,
-} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import CustomText from '../common/custom_text/custom_text';
 import {AppColor} from '../consts/colors';
 import CustomCard from '../common/custom_card/custom_card';
@@ -17,15 +13,13 @@ const SearchPage = ({navigation}: any) => {
   const [productList, setProductList] = useState([]);
   const [searchText, setSearchText] = useState('');
 
-  //  const product = useSelector((state: any) => state.cart);
-
   const getSearchedProductList = () => {
     axiosInstance
       .get(`/products/?title=${searchText}`)
       .then(response => {
         if (response.status == 200) {
           console.log(response.data);
-          
+
           setProductList(response.data);
           setIsLoading(false);
         }
@@ -37,15 +31,18 @@ const SearchPage = ({navigation}: any) => {
   };
   return (
     <View style={styles.searchPage}>
-      <CustomInputText placeholder='Search' marginVertical={4} onChangeText={value => {
+      <CustomInputText
+        placeholder="Search"
+        marginVertical={4}
+        onChangeText={value => {
           setSearchText(value);
           getSearchedProductList();
-        }
-        }/>
+        }}
+      />
       <View style={{flex: 1}}>
         {isLoading ? (
           <CustomText text="Nothing to show..." textStyle={styles.titleStyle} />
-          ) : (
+        ) : (
           <FlatList
             numColumns={2}
             data={productList}
@@ -60,7 +57,6 @@ const SearchPage = ({navigation}: any) => {
                     })
                   }
                 />
-                
               );
             }}
           />
@@ -77,10 +73,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
- 
+
   titleStyle: {
     color: AppColor.primary,
-    fontSize: 17,marginVertical:20
+    fontSize: 17,
+    marginVertical: 20,
   },
 });
 

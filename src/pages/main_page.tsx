@@ -1,13 +1,13 @@
 import {ActivityIndicator, FlatList, StyleSheet, View} from 'react-native';
-
 import React, {useEffect, useState} from 'react';
-import CustomText from '../common/custom_text/custom_text';
-import {AppColor} from '../consts/colors';
-import CustomCard from '../common/custom_card/custom_card';
-import {axiosInstance} from '../config/config';
-import {AppRoute} from '../consts/routes';
-import Appbar from '../component/app _bar/app_bar';
 import {useSelector} from 'react-redux';
+
+import {axiosInstance} from '../config/config';
+import CustomText from '../common/custom_text/custom_text';
+import CustomCard from '../common/custom_card/custom_card';
+import Appbar from '../component/app _bar/app_bar';
+import {AppColor} from '../consts/colors';
+import {AppRoute} from '../consts/routes';
 
 const MainPage = ({navigation}: any) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,8 +20,6 @@ const MainPage = ({navigation}: any) => {
       .get('/products')
       .then(response => {
         if (response.status == 200) {
-          // console.log(response.data);
-          
           setProductList(response.data);
           setIsLoading(false);
         }
@@ -92,8 +90,7 @@ const styles = StyleSheet.create({
   titleStyle: {
     color: AppColor.primary,
     fontSize: 17,
-    fontFamily:'Laila-Medium'
-
+    fontFamily: 'Laila-Medium',
   },
 });
 

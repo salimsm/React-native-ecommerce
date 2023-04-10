@@ -1,13 +1,12 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
-import CustomButton from '../common/custom_button/custom_button';
-import CustomText from '../common/custom_text/custom_text';
-import {AppColor} from '../consts/colors';
-import CustomInputText from '../common/custom_input_text/custom_input_text';
-import {AppRoute} from '../consts/routes';
-
 import auth from '@react-native-firebase/auth';
 
+import CustomButton from '../common/custom_button/custom_button';
+import CustomText from '../common/custom_text/custom_text';
+import CustomInputText from '../common/custom_input_text/custom_input_text';
+import {AppColor} from '../consts/colors';
+import {AppRoute} from '../consts/routes';
 
 /*
 doc url for create user

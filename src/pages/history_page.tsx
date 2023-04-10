@@ -31,7 +31,7 @@ const HistoryPage = () => {
       .once('value')
       .then(snapshot => {
         const data = snapshot.val();
-        const arrayData = Object.entries(data).map(([key, value]:any) => ({
+        const arrayData = Object.entries(data).map(([key, value]: any) => ({
           ...value,
           id: key,
         }));
@@ -49,8 +49,8 @@ const HistoryPage = () => {
       <Text style={styles.titleStyle}>Recent Purchased</Text>
       {isLoading ? (
         <View style={styles.loadingContianer}>
-        <ActivityIndicator />
-        <Text>Please wait ...</Text>
+          <ActivityIndicator />
+          <Text>Please wait ...</Text>
         </View>
       ) : (
         <FlatList
@@ -87,37 +87,34 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  loadingContianer:{
-    flex:1,
-    alignItems:'center',
-    justifyContent:'center'
+  loadingContianer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   cartContainer: {
     backgroundColor: AppColor.card,
-    
+
     marginHorizontal: 2,
     marginVertical: 2,
 
     paddingHorizontal: 5,
-    paddingVertical:3,
+    paddingVertical: 3,
 
-    borderLeftWidth:4,
-    borderTopWidth:0.5,
-    borderBottomWidth:0.5,
-    borderRightWidth:0.5,
+    borderLeftWidth: 4,
+    borderTopWidth: 0.5,
+    borderBottomWidth: 0.5,
+    borderRightWidth: 0.5,
 
-
-    elevation:4
-
+    elevation: 4,
   },
   textBold: {fontWeight: 'bold', marginLeft: 8},
-  titleStyle:{
-    fontSize:30,
-    fontFamily:'Laila-Medium',
-    alignSelf:'center',
-    color:AppColor.black
-
-  }
+  titleStyle: {
+    fontSize: 30,
+    fontFamily: 'Laila-Medium',
+    alignSelf: 'center',
+    color: AppColor.black,
+  },
 });
 
 export default HistoryPage;

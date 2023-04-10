@@ -1,16 +1,16 @@
 import {FlatList, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import database from '@react-native-firebase/database';
-
-import {AppColor} from '../consts/colors';
 import {useDispatch, useSelector} from 'react-redux';
-import CustomIcon from '../common/custom_icon/custom_icon';
-import {clearProduct, removeProduct} from '../redux/slice/cart_slice';
-import CustomButton from '../common/custom_button/custom_button';
 
-import {getDate, getTime} from '../helper/helper';
-import TextInColumn from '../component/text_in_column/text_in_column';
+import CustomIcon from '../common/custom_icon/custom_icon';
+import CustomButton from '../common/custom_button/custom_button';
 import CustomImage from '../common/custom_image/custom_image';
+import TextInColumn from '../component/text_in_column/text_in_column';
+import {AppColor} from '../consts/colors';
+import {clearProduct, removeProduct} from '../redux/slice/cart_slice';
+import {getDate, getTime} from '../helper/helper';
+
 
 const CartPage = () => {
   const product = useSelector((state: any) => state.cart);

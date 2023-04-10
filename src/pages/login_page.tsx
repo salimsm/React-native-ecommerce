@@ -1,16 +1,15 @@
 import {StyleSheet, Text, View} from 'react-native';
-
 import React, {useState} from 'react';
-import CustomButton from '../common/custom_button/custom_button';
-import CustomText from '../common/custom_text/custom_text';
-
-import {AppColor} from '../consts/colors';
-import {AppRoute} from '../consts/routes';
-import CustomInputText from '../common/custom_input_text/custom_input_text';
-import CustomIcon from '../common/custom_icon/custom_icon';
-
 import auth from '@react-native-firebase/auth';
 import {useDispatch} from 'react-redux';
+
+import CustomButton from '../common/custom_button/custom_button';
+import CustomText from '../common/custom_text/custom_text';
+import CustomInputText from '../common/custom_input_text/custom_input_text';
+import CustomIcon from '../common/custom_icon/custom_icon';
+import {AppColor} from '../consts/colors';
+import {AppRoute} from '../consts/routes';
+
 import {updateUser} from '../redux/slice/user_slice';
 import { storage } from '../mmkv-storage/mmkv_storage';
 
@@ -58,7 +57,6 @@ const LoginPage = ({navigation}: any) => {
         placeholder="Email"
         onChangeText={value => {
           setEmail(value);
-          // console.log(value);
         }}
         marginVertical={10}
       />
@@ -67,7 +65,6 @@ const LoginPage = ({navigation}: any) => {
         placeholder="Password"
         onChangeText={value => {
           setPassword(value);
-          // console.log(value);
         }}
         marginVertical={10}
         secureTextEntry={showPassword}
