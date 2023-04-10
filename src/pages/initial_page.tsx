@@ -10,10 +10,10 @@ import {updateUser} from '../redux/slice/user_slice';
 
 const InitialPage = () => {
   console.log('Initial Screen');
-  const userEmail = storage.getString('user.email');
-  const userUid = storage.getString('user.uid');
   const dispatch = useDispatch();
-
+  const userUid = storage.getString('user.uid');
+  const userEmail = storage.getString('user.email');
+  
   useEffect(() => {
     dispatch(updateUser({email: userEmail, uid: userUid}));
   }, []);

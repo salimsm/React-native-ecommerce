@@ -14,7 +14,7 @@ interface AppbarInterface {
 const Appbar = ({totalItem,cartPage,searchPage}: AppbarInterface) => {
   return (
     <View style={[styles.appBar]}>
-      <CustomText text="Shop it.." textStyle={styles.titleStyle}/>
+      <CustomText text="Shop it..." textStyle={styles.titleStyle}/>
       <View style={{flexDirection:'row'}}>
       <CustomIcon icon="search" style={styles.iconStyle} onPress={searchPage} size={20} />
       {/* <CustomIcon icon="shopping-basket" style={styles.iconStyle} onPress={() => {}} /> */}
