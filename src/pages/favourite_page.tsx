@@ -25,13 +25,18 @@ const FavouritePage = () => {
         <Text style={styles.titleStyle}>Saved Product</Text>
         <CustomIcon icon="undo" onPress={funClearAllFav}/>
       </View>
-
-      <FlatList
+      {
+        favouriteList.favouriteItem.length!==0?
+        <FlatList
         data={favouriteList.favouriteItem}
         renderItem={({item}: {item: any}) => {
           return <FavouritePageCard item={item} dispatch={dispatch} />;
         }}
-      />
+      />:
+        <Text style={[styles.title,{alignSelf:'center',marginVertical:50}]}>Nothing to show</Text>
+
+      }
+      
     </View>
   );
 };
@@ -69,6 +74,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 8,
+    borderBottomWidth:1,
+    marginVertical:2
   },
 
   // card style

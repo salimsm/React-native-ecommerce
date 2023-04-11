@@ -111,10 +111,12 @@ const styles = StyleSheet.create({
   },
   textBold: {fontWeight: 'bold', marginLeft: 8},
   titleStyle: {
-    fontSize: 30,
+    fontSize: 25,
     fontFamily: 'Laila-Medium',
-    alignSelf: 'center',
     color: AppColor.black,
+    paddingHorizontal:8,
+    borderBottomWidth:1,
+    marginVertical:2
   },
 });
 
