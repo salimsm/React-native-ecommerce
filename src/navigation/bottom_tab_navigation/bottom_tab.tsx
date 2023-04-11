@@ -5,6 +5,7 @@ import MainStack from '../stack_navigation/main_stack';
 import ProfilePage from '../../pages/profile_page';
 import HistoryPage from '../../pages/history_page';
 import {AppColor} from '../../consts/colors';
+import ProfileStack from '../stack_navigation/profile_stack';
 
 const Tab = createBottomTabNavigator();
 
@@ -43,7 +44,7 @@ const BottomTab = () => {
       />
       <Tab.Screen
         name="ProilePage"
-        component={ProfilePage}
+        component={ProfileStack}
         options={{
           headerShown: false,
           tabBarLabel: 'Profile',

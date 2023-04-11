@@ -7,10 +7,11 @@ import CustomButton from '../common/custom_button/custom_button';
 import {AppColor} from '../consts/colors';
 import {removeUser} from '../redux/slice/user_slice';
 import {storage} from '../mmkv-storage/mmkv_storage';
+import { AppRoute } from '../consts/routes';
 const imageUrl =
   'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png';
 
-const ProfilePage = () => {
+const ProfilePage = ({navigation}:any) => {
   const user = useSelector((state: any) => state.user);
   const dispatch = useDispatch();
 
@@ -18,6 +19,9 @@ const ProfilePage = () => {
     storage.delete('user.email');
     storage.delete('user.uid');
     dispatch(removeUser());
+  };
+  const goToFavouritePage = () => {
+    navigation.navigate(AppRoute.FavouritePage);
   };
 
   return (
@@ -42,8 +46,8 @@ const ProfilePage = () => {
         {/* <CustomText text="Profile" textStyle={styles.small} />
         <CustomText text="Profile" textStyle={styles.small} /> */}
         <CustomButton
-          text="See Your WatchList"
-          onPress={logout}
+          text="See Your Favourite"
+          onPress={goToFavouritePage}
           buttonStyle={styles.watchListButton}
           buttonTextStyle={styles.watchListText}
         />

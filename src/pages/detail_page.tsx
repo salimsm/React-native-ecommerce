@@ -1,4 +1,4 @@
-import {Image,ScrollView, StyleSheet, Text, View} from 'react-native';
+import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
 
@@ -8,9 +8,10 @@ import ImageContainer from '../component/image_container/image_container';
 import CustomIcon from '../common/custom_icon/custom_icon';
 import {AppColor} from '../consts/colors';
 import {addProduct} from '../redux/slice/cart_slice';
+import {addFavouriteProduct} from '../redux/slice/favourite_slice';
 
-const DetailPage = ({navigation,route}: any) => {
-  const {item} = route.params;  
+const DetailPage = ({navigation, route}: any) => {
+  const {item} = route.params;
   const [quantityItem, setItemQuantity] = useState(1);
   const dispatch = useDispatch();
 
@@ -27,58 +28,63 @@ const DetailPage = ({navigation,route}: any) => {
 
   return (
     <ScrollView>
-    <View style={styles.detailPage}>
-      <Image
-        source={{uri: item?.images[0]}}
-        style={{width: '100%', height: 180}}
-      />
-
-      <View style={{alignItems: 'center'}}>
-        <CustomText
-          text={`$ ${item.price}`}
-          textStyle={styles.mediumTextStyle}
-        />
-        <CustomText
-          text={`Category: ${item?.category?.name}`}
-          textStyle={styles.mediumTextStyle}
+      <View style={styles.detailPage}>
+        <Image
+          source={{uri: item?.images[0]}}
+          style={{width: '100%', height: 180}}
         />
 
-        <ImageContainer
-          imageUrls={item?.images}
-          height={60}
-          marginHorizontal={10}
-        />
+        <View style={{alignItems: 'center'}}>
+          <CustomText
+            text={`$ ${item.price}`}
+            textStyle={styles.mediumTextStyle}
+          />
+          <CustomText
+            text={`Category: ${item?.category?.name}`}
+            textStyle={styles.mediumTextStyle}
+          />
 
-        <CustomText text={item.description} textStyle={styles.smallTextStyle} />
-        <QunatitySelectComponent
-          quantity={quantityItem}
-          increment={increment}
-          decrement={decrement}
-        />
-        <CustomButton
-          text="Add To Cart"
-          onPress={() => {
-            dispatch(
-              addProduct({
-                id: item.id,
-                title: item.title,
-                price: item.price,
-                itemQty: quantityItem,
-                itemTotalPrice: item.price * quantityItem,
-               imageUrl:item.category.image
-              }),
-            );
-            navigation.goBack();
-          }}
-        />
-        <CustomButton
-          text="Save To Wishlist"
-          onPress={() => {}}
-          buttonStyle={styles.buttonStyle}
-          buttonTextStyle={styles.buttonTextStyle}
-        />
+          <ImageContainer
+            imageUrls={item?.images}
+            height={60}
+            marginHorizontal={10}
+          />
+
+          <CustomText
+            text={item.description}
+            textStyle={styles.smallTextStyle}
+          />
+          <QunatitySelectComponent
+            quantity={quantityItem}
+            increment={increment}
+            decrement={decrement}
+          />
+          <CustomButton
+            text="Add To Cart"
+            onPress={() => {
+              dispatch(
+                addProduct({
+                  id: item.id,
+                  title: item.title,
+                  price: item.price,
+                  itemQty: quantityItem,
+                  itemTotalPrice: item.price * quantityItem,
+                  imageUrl: item.category.image,
+                }),
+              );
+              navigation.goBack();
+            }}
+          />
+          <CustomButton
+            text="Save To Wishlist"
+            onPress={() => {
+              dispatch(addFavouriteProduct(item));
+            }}
+            buttonStyle={styles.buttonStyle}
+            buttonTextStyle={styles.buttonTextStyle}
+          />
+        </View>
       </View>
-    </View>
     </ScrollView>
   );
 };
