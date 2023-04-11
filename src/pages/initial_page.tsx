@@ -1,12 +1,12 @@
 import {SafeAreaView} from 'react-native';
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {storage} from '../mmkv-storage/mmkv_storage';
 import {RootState} from '../redux/store/store';
 import AuthStack from '../navigation/stack_navigation/auth_stack';
 import BottomTab from '../navigation/bottom_tab_navigation/bottom_tab';
 import {NavigationContainer} from '@react-navigation/native';
 import {updateUser} from '../redux/slice/user_slice';
+import { storage } from '../mmkv-storage/mmkv_storage';
 
 const InitialPage = () => {
   console.log('Initial Screen');

@@ -6,7 +6,7 @@ import CustomText from '../common/custom_text/custom_text';
 import CustomButton from '../common/custom_button/custom_button';
 import {AppColor} from '../consts/colors';
 import {removeUser} from '../redux/slice/user_slice';
-import { storage } from '../mmkv-storage/mmkv_storage';
+import {storage} from '../mmkv-storage/mmkv_storage';
 const imageUrl =
   'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png';
 
@@ -15,19 +15,15 @@ const ProfilePage = () => {
   const dispatch = useDispatch();
 
   const logout = () => {
-    storage.delete('user.email')
-    storage.delete('user.uid')
+    storage.delete('user.email');
+    storage.delete('user.uid');
     dispatch(removeUser());
-
   };
 
   return (
     <View style={styles.profilePage}>
       <View style={{flex: 1, backgroundColor: AppColor.primary}}>
-        <CustomText
-          text="Profile"
-          // textStyle={styles.titleStyle}
-        />
+        <CustomText text="Profile" textStyle={[styles.titleStyle]} />
       </View>
       <View style={{flex: 2, alignItems: 'center'}}>
         <Image
@@ -43,8 +39,14 @@ const ProfilePage = () => {
           }}
         />
         <CustomText text={user.email} textStyle={styles.medium} />
-        <CustomText text="Profile" textStyle={styles.small} />
-        <CustomText text="Profile" textStyle={styles.small} />
+        {/* <CustomText text="Profile" textStyle={styles.small} />
+        <CustomText text="Profile" textStyle={styles.small} /> */}
+        <CustomButton
+          text="See Your WatchList"
+          onPress={logout}
+          buttonStyle={styles.watchListButton}
+          buttonTextStyle={styles.watchListText}
+        />
         <CustomButton text="Logout" onPress={logout} />
       </View>
     </View>
@@ -56,6 +58,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: AppColor.background,
   },
+  titleStyle: {
+    alignSelf: 'center',
+    color: AppColor.background,
+    fontSize: 20,
+    marginTop: 10,
+    fontWeight: '600',
+  },
   medium: {
     color: AppColor.primary,
     fontSize: 20,
@@ -65,6 +74,16 @@ const styles = StyleSheet.create({
   small: {
     color: AppColor.primary,
     fontSize: 17,
+  },
+  watchListButton: {
+    backgroundColor: AppColor.background,
+
+    marginVertical: 10,
+    borderWidth: 1,
+    borderColor: AppColor.primary,
+  },
+  watchListText: {
+    color: AppColor.primary,
   },
 });
 
