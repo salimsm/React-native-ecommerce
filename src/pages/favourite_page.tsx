@@ -13,15 +13,19 @@ import TextInColumn from '../component/text_in_column/text_in_column';
 import CustomIcon from '../common/custom_icon/custom_icon';
 import {clearFavouriteProduct, removeFavouriteProduct} from '../redux/slice/favourite_slice';
 
-const FavouritePage = () => {
+const FavouritePage = ({navigation}:any) => {
   const favouriteList = useSelector((state: any) => state.favourite);
   const dispatch = useDispatch();
   const funClearAllFav=()=>{
     dispatch(clearFavouriteProduct());
   }
+  const goToProfilePage = () => {
+    navigation.goBack();
+  };
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
+      <CustomIcon icon="long-arrow-left" onPress={goToProfilePage}/>
         <Text style={styles.titleStyle}>Saved Product</Text>
         <CustomIcon icon="undo" onPress={funClearAllFav}/>
       </View>

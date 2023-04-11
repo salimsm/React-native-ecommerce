@@ -17,7 +17,7 @@ const LoginPage = ({navigation}: any) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [error, setError] = useState<String>('');
-  const [email, setEmail] = useState<string>('jame@gmail.com');
+  const [email, setEmail] = useState<string>('ketty@gmail.com');
   const [password, setPassword] = useState<string>('1234567');
 
   const dispatch = useDispatch();

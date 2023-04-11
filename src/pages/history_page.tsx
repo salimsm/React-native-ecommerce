@@ -21,7 +21,7 @@ interface IHistory {
 }
 const HistoryPage = () => {
   const user = useSelector((state: any) => state.user);
-console.log(user.uid);
+  console.log(user.uid);
 
   const [userHistory, setUserHistory] = useState<IHistory[]>();
   const [isLoading, setIsLoading] = useState(true);
@@ -32,12 +32,16 @@ console.log(user.uid);
       .once('value')
       .then(snapshot => {
         const data = snapshot.val();
-        const arrayData = Object.entries(data).map(([key, value]: any) => ({
-          ...value,
-          id: key,
-        }));
-        setUserHistory(arrayData);
-        setIsLoading(false);
+        if (data) {
+          const arrayData = Object.entries(data).map(([key, value]: any) => ({
+            ...value,
+            id: key,
+          }));
+          setUserHistory(arrayData);
+          setIsLoading(false);
+        }else{
+          setIsLoading(false);
+        }
       });
   };
 
@@ -54,12 +58,15 @@ console.log(user.uid);
           <Text>Please wait ...</Text>
         </View>
       ) : (
+        userHistory?
         <FlatList
           data={userHistory}
           renderItem={({item}: {item: IHistory}) => {
             return <HistoryCart item={item} />;
           }}
-        />
+        />:
+        <Text style={[styles.title,{alignSelf:'center',marginVertical:50}]}>No recent purchased to show</Text>
+
       )}
     </View>
   );
@@ -93,6 +100,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  title: {fontWeight: 'bold', fontSize: 17},
+
   cartContainer: {
     backgroundColor: AppColor.card,
 
@@ -114,9 +123,9 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: 'Laila-Medium',
     color: AppColor.black,
-    paddingHorizontal:8,
-    borderBottomWidth:1,
-    marginVertical:2
+    paddingHorizontal: 8,
+    borderBottomWidth: 1,
+    marginVertical: 2,
   },
 });
 
