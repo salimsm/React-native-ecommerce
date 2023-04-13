@@ -1,54 +1,54 @@
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
-import {AppColor} from '../../consts/colors';
+import CategoryListPage from '../../pages/category_list_page';
+import { useNavigation } from '@react-navigation/native';
 
-interface ICategory {
-  title?: string;
-  icon?: string;
-  color?: string;
-  size?: number;
-}
-
-const Category = ({title, icon, color = AppColor.black, size}: ICategory) => {
+const Category = ({navigation}:any) => {
+  const goNextPage =(value:string)=>{
+    console.log(value, 'Category');
+    navigation.navigate("CategoryListPage",{value:value});
+  }
   return (
-    <View style={{height:35}}>
-    <ScrollView  horizontal={true}
-      showsHorizontalScrollIndicator={false}
-    >
-      <Chip text="Men" />
-      <Chip text="Men" />
-      <Chip text="Men" />
-      <Chip text="Men" />
-      <Chip text="Men" />
-      <Chip text="Men" />
-      <Chip text="Men" />
-      <Chip text="Men" />
-      <Chip text="Men" />
-      <Chip text="Men" />
-    
-    {/* </View> */}
-     </ScrollView>
-     </View>
-  );
-};
-
-const Chip = ({text}: {text: string}) => {
-  return (
-    <View
-      style={{
-        borderWidth: 1,
-        borderRadius: 5,
-        paddingHorizontal: 8,
-        paddingVertical: 4,
-        
-        marginHorizontal:4,
-        marginVertical:2
-      }}>
-      <Text>{text}</Text>
+    <View style={{height: 35}}>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+        <Chip text="Electronics" onPress={goNextPage}/>
+        <Chip text="Shoes" onPress={goNextPage}/>
+        <Chip text="Furniture" onPress={goNextPage}/>
+        <Chip text="Ropa chida" onPress={goNextPage}/>
+        <Chip text="Others" onPress={goNextPage}/>
+      </ScrollView>
     </View>
   );
 };
+
+interface IChip {
+  text: string;
+  onPress: (value:string) => void;
+}
+
+const Chip = ({text, onPress}: IChip) => {
+  return (
+    <TouchableOpacity onPress={()=>onPress(text)} style={styles.chipStyle}>
+      <Text>{text}</Text>
+    </TouchableOpacity>
+  );
+};
 const styles = StyleSheet.create({
+  chipStyle: {
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+
+    marginHorizontal: 4,
+    marginVertical: 2,
+  },
 });
 
 export default Category;

@@ -5,6 +5,7 @@ import MainPage from '../../pages/main_page';
 import DetailPage from '../../pages/detail_page';
 import CartPage from '../../pages/cart_page';
 import SearchPage from '../../pages/search_page';
+import CategoryListPage from '../../pages/category_list_page';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,13 @@ const MainStack = () => {
       <Stack.Screen
         name={AppRoute.SearchPage}
         component={SearchPage}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name='CategoryListPage'
+        component={CategoryListPage}
         options={{
           headerShown: false,
         }}

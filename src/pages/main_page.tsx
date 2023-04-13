@@ -49,7 +49,7 @@ const MainPage = ({navigation}: any) => {
         cartPage={moveToCartPage}
         searchPage={moveToSearchPage}
       />
-      <Category/>
+      <Category navigation={navigation}/>
       <View style={{flex: 1}}>
         {isLoading ? (
           <>
