@@ -8,6 +8,7 @@ import CustomCard from '../common/custom_card/custom_card';
 import Appbar from '../component/app _bar/app_bar';
 import {AppColor} from '../consts/colors';
 import {AppRoute} from '../consts/routes';
+import Category from '../component/category/category';
 
 const MainPage = ({navigation}: any) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,6 +49,7 @@ const MainPage = ({navigation}: any) => {
         cartPage={moveToCartPage}
         searchPage={moveToSearchPage}
       />
+      <Category navigation={navigation}/>
       <View style={{flex: 1}}>
         {isLoading ? (
           <>

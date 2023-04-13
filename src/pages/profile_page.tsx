@@ -63,11 +63,13 @@ const styles = StyleSheet.create({
     backgroundColor: AppColor.background,
   },
   titleStyle: {
-    alignSelf: 'center',
+    fontSize: 25,
+    fontFamily: 'Laila-Medium',
     color: AppColor.background,
-    fontSize: 20,
-    marginTop: 10,
-    fontWeight: '600',
+    paddingHorizontal: 8,
+    borderBottomWidth: 1,
+    marginVertical: 2,
+    alignSelf:'center'
   },
   medium: {
     color: AppColor.primary,

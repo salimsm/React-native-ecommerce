@@ -76,7 +76,7 @@ const HistoryCart = ({item}: {item: IHistory}) => {
   return (
     <View style={styles.cartContainer}>
       {/* top container for date and time */}
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+      <View style={{flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth:1}}>
         <IconAndText title={item.date} icon="calendar" />
         <IconAndText title={item.time} icon="clock-o" />
       </View>
