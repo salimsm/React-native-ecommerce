@@ -39,10 +39,17 @@ export const cartSlice = createSlice({
     },
     removeProduct(state, action: PayloadAction<any>) {
       const product = action.payload;
+      console.log(product,'1111111111111111111111 product from remove product');
+      
       state.cartItem = state.cartItem.filter((item)=>item.id !== product.id);
-      console.log(state.totalItem,'before');
+      console.log(state.cartItem);
+      
+      console.log(state.totalItem,'before remove product');
+      console.log(state.totalItem,'state.totalItem');
+      console.log(product.itemQty,'product.itemQty');
       state.totalItem -= product.itemQty;
-      console.log(state.totalItem);
+
+      console.log(state.totalItem,'after remove product');
       
       state.totalPrice -= product.itemTotalPrice;
     },

@@ -1,20 +1,52 @@
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import Toast from 'react-native-toast-message';
+import {addProduct, removeProduct} from '../redux/slice/cart_slice';
+import {addFavouriteProduct} from '../redux/slice/favourite_slice';
 
 import CustomText from '../common/custom_text/custom_text';
 import CustomButton from '../common/custom_button/custom_button';
 import ImageContainer from '../component/image_container/image_container';
 import CustomIcon from '../common/custom_icon/custom_icon';
 import {AppColor} from '../consts/colors';
-import {addProduct} from '../redux/slice/cart_slice';
-import {addFavouriteProduct} from '../redux/slice/favourite_slice';
-import Toast from 'react-native-toast-message';
+
+interface IExistingItem {
+  id: number;
+  imageUrl: string;
+  itemQty: number;
+  itemTotalPrice: number;
+  price: number;
+  title: string;
+}
 
 const DetailPage = ({navigation, route}: any) => {
+  console.log();
+  console.log('_____________________detail page _______________________');
+
   const {item} = route.params;
   const [quantityItem, setItemQuantity] = useState(1);
+  const [showAddButton, setShowAddButton] = useState(true);
+
+  const [existingItem, setExistingItem] = useState<IExistingItem | undefined>();
+
   const dispatch = useDispatch();
+
+  const product = useSelector((state: any) => state.cart);
+  //let existingItem:IExistingItem|undefined;
+
+  useEffect(() => {
+    console.log('useEffect called');
+    const existItem = product.cartItem.find(
+      (value: any) => value.id == item.id,
+    );
+    setExistingItem(existItem);
+    console.log(existItem, 'existing item inside useEffect');
+    if (existingItem) {
+      setItemQuantity(existingItem.itemQty);
+      setShowAddButton(false);
+    }
+  }, [existingItem]);
 
   const increment = () => {
     if (quantityItem < 6) {
@@ -60,22 +92,42 @@ const DetailPage = ({navigation, route}: any) => {
             increment={increment}
             decrement={decrement}
           />
-          <CustomButton
-            text="Add To Cart"
-            onPress={() => {
-               dispatch(
-                addProduct({
-                  id: item.id,
-                  title: item.title,
-                  price: item.price,
-                  itemQty: quantityItem,
-                  itemTotalPrice: item.price * quantityItem,
-                  imageUrl: item.category.image,
-                }),
-              );
-              navigation.goBack();
-            }}
-          />
+          {showAddButton ? (
+            <CustomButton
+              text="Add To Cart"
+              onPress={() => {
+                dispatch(
+                  addProduct({
+                    id: item.id,
+                    title: item.title,
+                    price: item.price,
+                    itemQty: quantityItem,
+                    itemTotalPrice: item.price * quantityItem,
+                    imageUrl: item.category.image,
+                  }),
+                );
+                setShowAddButton(false);
+                console.log(product.cartItem);
+                navigation.goBack();
+              }}
+            />
+          ) : (
+            <CustomButton
+              text="Reset"
+              onPress={() => {
+                console.log(existingItem, 'Reset button');
+                if (existingItem) {
+                  dispatch(removeProduct(existingItem));
+                  setShowAddButton(true);
+                  setExistingItem(undefined);
+                  // setItemQuantity(1);
+                } else {
+                  console.log('undefined value in existingItem');
+                }
+              }}
+            />
+          )}
+
           <CustomButton
             text="Save To Wishlist"
             onPress={() => {
@@ -83,8 +135,8 @@ const DetailPage = ({navigation, route}: any) => {
               Toast.show({
                 type: 'success',
                 text1: 'Saved',
-                position:'bottom'
-              });      
+                position: 'bottom',
+              });
             }}
             buttonStyle={styles.buttonStyle}
             buttonTextStyle={styles.buttonTextStyle}

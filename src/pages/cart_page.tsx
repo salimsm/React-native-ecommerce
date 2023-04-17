@@ -15,6 +15,8 @@ import Toast from 'react-native-toast-message';
 
 const CartPage = () => {
   const product = useSelector((state: any) => state.cart);
+  console.log('cart page');
+
   const user = useSelector((state: any) => state.user);
 
   const dispatch = useDispatch();
@@ -104,6 +106,8 @@ const CartPageCard = ({item, dispatch}: any) => {
           icon={'trash-o'}
           size={22}
           onPress={() => {
+            console.log("delete icon pressed");
+            
             dispatch(removeProduct(item));
           }}
         />
