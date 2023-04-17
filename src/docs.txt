@@ -46,4 +46,15 @@ https://www.npmjs.com/package/react-native-splash-screen
         "react-native-splash-screen": "^3.3.0",
     
 
+branch
+        - branch/BeforeResetInDetailPage
+                code before showing item quantity if it is 
+                already present in cart and showing reset 
+                button to remove and allowing to readd to cart
+        
+        - branch/Reset 
+                code up to reset item and showing quantity if 
+                already present in cart list
 
+        -master 
+                latest code        
