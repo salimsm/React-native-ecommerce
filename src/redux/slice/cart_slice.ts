@@ -1,4 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { Toast } from 'react-native-toast-message/lib/src/Toast';
+import { AppRoute } from '../../consts/routes';
 
 interface CartInterface {
   cartItem: any[];
@@ -27,8 +29,12 @@ export const cartSlice = createSlice({
         state.cartItem.push(product);
         state.totalItem += product.itemQty;
         state.totalPrice += product.itemTotalPrice;
-      } else {
-        console.log('already in cart');
+      } else {        
+        Toast.show({
+          type: 'success',
+          text1: 'Already Added',
+          position:'bottom'
+        });
       }
     },
     removeProduct(state, action: PayloadAction<any>) {

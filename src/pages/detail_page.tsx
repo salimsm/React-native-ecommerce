@@ -9,6 +9,7 @@ import CustomIcon from '../common/custom_icon/custom_icon';
 import {AppColor} from '../consts/colors';
 import {addProduct} from '../redux/slice/cart_slice';
 import {addFavouriteProduct} from '../redux/slice/favourite_slice';
+import Toast from 'react-native-toast-message';
 
 const DetailPage = ({navigation, route}: any) => {
   const {item} = route.params;
@@ -62,7 +63,7 @@ const DetailPage = ({navigation, route}: any) => {
           <CustomButton
             text="Add To Cart"
             onPress={() => {
-              dispatch(
+               dispatch(
                 addProduct({
                   id: item.id,
                   title: item.title,
@@ -79,6 +80,11 @@ const DetailPage = ({navigation, route}: any) => {
             text="Save To Wishlist"
             onPress={() => {
               dispatch(addFavouriteProduct(item));
+              Toast.show({
+                type: 'success',
+                text1: 'Saved',
+                position:'bottom'
+              });      
             }}
             buttonStyle={styles.buttonStyle}
             buttonTextStyle={styles.buttonTextStyle}

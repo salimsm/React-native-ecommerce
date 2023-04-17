@@ -10,6 +10,7 @@ import TextInColumn from '../component/text_in_column/text_in_column';
 import {AppColor} from '../consts/colors';
 import {clearProduct, removeProduct} from '../redux/slice/cart_slice';
 import {getDate, getTime} from '../helper/helper';
+import Toast from 'react-native-toast-message';
 
 
 const CartPage = () => {
@@ -41,6 +42,14 @@ const CartPage = () => {
 
     if (product.totalItem == 0) {
       console.log('no item');
+      Toast.show({
+        type: 'error',
+        text1: 'Cart Empty',
+        text2: 'No item in cart',
+        position:'bottom'
+
+      });
+  
     } else {
       const d = getDate();
       const t = getTime();
