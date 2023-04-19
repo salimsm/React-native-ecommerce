@@ -17,9 +17,8 @@ const SearchPage = ({navigation}: any) => {
     axiosInstance
       .get(`/products/?title=${searchText}`)
       .then(response => {
-        if (response.status == 200) {
-          console.log(response.data);
-
+        if (response.status == 200) {          
+//          console.log(response.data);
           setProductList(response.data);
           setIsLoading(false);
         }

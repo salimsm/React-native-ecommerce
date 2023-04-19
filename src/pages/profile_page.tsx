@@ -7,11 +7,11 @@ import CustomButton from '../common/custom_button/custom_button';
 import {AppColor} from '../consts/colors';
 import {removeUser} from '../redux/slice/user_slice';
 import {storage} from '../mmkv-storage/mmkv_storage';
-import { AppRoute } from '../consts/routes';
+import {AppRoute} from '../consts/routes';
 const imageUrl =
   'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png';
 
-const ProfilePage = ({navigation}:any) => {
+const ProfilePage = ({navigation}: any) => {
   const user = useSelector((state: any) => state.user);
   const dispatch = useDispatch();
 
@@ -43,8 +43,6 @@ const ProfilePage = ({navigation}:any) => {
           }}
         />
         <CustomText text={user.email} textStyle={styles.medium} />
-        {/* <CustomText text="Profile" textStyle={styles.small} />
-        <CustomText text="Profile" textStyle={styles.small} /> */}
         <CustomButton
           text="See Your Favourite"
           onPress={goToFavouritePage}
@@ -69,7 +67,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     borderBottomWidth: 1,
     marginVertical: 2,
-    alignSelf:'center'
+    alignSelf: 'center',
   },
   medium: {
     color: AppColor.primary,

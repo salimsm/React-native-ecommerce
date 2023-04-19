@@ -17,7 +17,6 @@ const Appbar = ({totalItem,cartPage,searchPage}: AppbarInterface) => {
       <CustomText text="Shop it..." textStyle={styles.titleStyle}/>
       <View style={{flexDirection:'row'}}>
       <CustomIcon icon="search" style={styles.iconStyle} onPress={searchPage} size={20} />
-      {/* <CustomIcon icon="shopping-basket" style={styles.iconStyle} onPress={() => {}} /> */}
       <CustomIconWithNumber icon="shopping-basket" style={styles.iconStyle} onPress={cartPage} size={20} number={totalItem} />
       </View>
     </View>
@@ -30,14 +29,22 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderBottomRightRadius: 20,
     borderTopRightRadius: 20,
+    
     width: '95%',
+
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    
     paddingLeft: 10,
     marginHorizontal: 8,
     marginVertical: 4,
-    elevation: 2,
+    
+    elevation: 4,
+    shadowColor:AppColor.black,
+
+    backgroundColor:AppColor.background
+
   },
   iconStyle: {
   //padding: 5,

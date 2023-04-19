@@ -21,8 +21,6 @@ interface IHistory {
 }
 const HistoryPage = () => {
   const user = useSelector((state: any) => state.user);
-  console.log(user.uid);
-
   const [userHistory, setUserHistory] = useState<IHistory[]>();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -39,7 +37,7 @@ const HistoryPage = () => {
           }));
           setUserHistory(arrayData);
           setIsLoading(false);
-        }else{
+        } else {
           setIsLoading(false);
         }
       });
@@ -57,16 +55,17 @@ const HistoryPage = () => {
           <ActivityIndicator />
           <Text>Please wait ...</Text>
         </View>
-      ) : (
-        userHistory?
+      ) : userHistory ? (
         <FlatList
           data={userHistory}
           renderItem={({item}: {item: IHistory}) => {
             return <HistoryCart item={item} />;
           }}
-        />:
-        <Text style={[styles.title,{alignSelf:'center',marginVertical:50}]}>No recent purchased to show</Text>
-
+        />
+      ) : (
+        <Text style={[styles.title, {alignSelf: 'center', marginVertical: 50}]}>
+          No recent purchased to show
+        </Text>
       )}
     </View>
   );
@@ -76,7 +75,12 @@ const HistoryCart = ({item}: {item: IHistory}) => {
   return (
     <View style={styles.cartContainer}>
       {/* top container for date and time */}
-      <View style={{flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth:1}}>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          borderBottomWidth: 1,
+        }}>
         <IconAndText title={item.date} icon="calendar" />
         <IconAndText title={item.time} icon="clock-o" />
       </View>

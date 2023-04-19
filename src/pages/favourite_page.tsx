@@ -5,12 +5,12 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-
-import {AppColor} from '../consts/colors';
 import {useDispatch, useSelector} from 'react-redux';
+
 import CustomImage from '../common/custom_image/custom_image';
 import TextInColumn from '../component/text_in_column/text_in_column';
 import CustomIcon from '../common/custom_icon/custom_icon';
+import {AppColor} from '../consts/colors';
 import {clearFavouriteProduct, removeFavouriteProduct} from '../redux/slice/favourite_slice';
 
 const FavouritePage = ({navigation}:any) => {
@@ -38,9 +38,7 @@ const FavouritePage = ({navigation}:any) => {
         }}
       />:
         <Text style={[styles.title,{alignSelf:'center',marginVertical:50}]}>Nothing to show</Text>
-
-      }
-      
+      }      
     </View>
   );
 };
@@ -51,10 +49,8 @@ const FavouritePageCard = ({item, dispatch}: any) => {
       <CustomImage imageUrl={item.imageUrl} height={60} width={60} margin={5} />
       <View>
         <Text style={styles.title}>{item.title}</Text>
-
         <View style={styles.subCartContainer}>
           <TextInColumn title="Price($)" value={item.price} />
-
           <CustomIcon
             icon={'trash-o'}
             size={22}

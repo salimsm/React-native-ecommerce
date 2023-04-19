@@ -1,14 +1,14 @@
 import {ActivityIndicator, FlatList, StyleSheet, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
-
 import {axiosInstance} from '../config/config';
+
 import CustomText from '../common/custom_text/custom_text';
 import CustomCard from '../common/custom_card/custom_card';
 import Appbar from '../component/app _bar/app_bar';
+import Category from '../component/category/category';
 import {AppColor} from '../consts/colors';
 import {AppRoute} from '../consts/routes';
-import Category from '../component/category/category';
 
 const MainPage = ({navigation}: any) => {
   const [isLoading, setIsLoading] = useState(true);

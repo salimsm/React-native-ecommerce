@@ -41,10 +41,7 @@ const RegisterPage = ({navigation}: any) => {
         setError('Password is weak should be > 6!');
       }
       setIsLoading(false);
-      // >>> common error
-      // setError(
-      //   'Error, please check email or \n password should be >6 character',
-      // );
+    
     }
   };
 

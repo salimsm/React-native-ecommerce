@@ -1,6 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import { Toast } from 'react-native-toast-message/lib/src/Toast';
-import { AppRoute } from '../../consts/routes';
+import {Toast} from 'react-native-toast-message/lib/src/Toast';
 
 interface CartInterface {
   cartItem: any[];
@@ -20,7 +19,6 @@ export const cartSlice = createSlice({
   reducers: {
     addProduct(state, action: PayloadAction<any>) {
       const product = action.payload;
-
       const existingItem = state.cartItem.find(
         (item: any) => item.id == product.id,
       );
@@ -29,38 +27,28 @@ export const cartSlice = createSlice({
         state.cartItem.push(product);
         state.totalItem += product.itemQty;
         state.totalPrice += product.itemTotalPrice;
-      } else {        
+      } else {
         Toast.show({
           type: 'success',
           text1: 'Already Added',
-          position:'bottom'
+          position: 'bottom',
         });
       }
     },
     removeProduct(state, action: PayloadAction<any>) {
       const product = action.payload;
-      console.log(product,'1111111111111111111111 product from remove product');
-      
-      state.cartItem = state.cartItem.filter((item)=>item.id !== product.id);
-      console.log(state.cartItem);
-      
-      console.log(state.totalItem,'before remove product');
-      console.log(state.totalItem,'state.totalItem');
-      console.log(product.itemQty,'product.itemQty');
+      state.cartItem = state.cartItem.filter(item => item.id !== product.id);
       state.totalItem -= product.itemQty;
-
-      console.log(state.totalItem,'after remove product');
-      
       state.totalPrice -= product.itemTotalPrice;
     },
-    clearProduct(state){
+    clearProduct(state) {
       state.cartItem = [];
       state.totalPrice = 0;
-      state.totalItem =0;
-    }
+      state.totalItem = 0;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {addProduct,removeProduct,clearProduct} = cartSlice.actions;
+export const {addProduct, removeProduct, clearProduct} = cartSlice.actions;
 export default cartSlice.reducer;

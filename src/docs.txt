@@ -57,4 +57,11 @@ branch
                 already present in cart list
 
         -master 
-                latest code        
+                latest code     
+
+sequence -
+        master-
+                - branch/BeforeResetInDetailPage
+                - branch/Reset
+                - branch/cleanup
+

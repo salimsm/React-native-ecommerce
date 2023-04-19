@@ -12,10 +12,8 @@ import {clearProduct, removeProduct} from '../redux/slice/cart_slice';
 import {getDate, getTime} from '../helper/helper';
 import Toast from 'react-native-toast-message';
 
-
 const CartPage = () => {
   const product = useSelector((state: any) => state.cart);
-  console.log('cart page');
 
   const user = useSelector((state: any) => state.user);
 
@@ -43,15 +41,12 @@ const CartPage = () => {
     );
 
     if (product.totalItem == 0) {
-      console.log('no item');
       Toast.show({
         type: 'error',
         text1: 'Cart Empty',
         text2: 'No item in cart',
-        position:'bottom'
-
+        position: 'bottom',
       });
-  
     } else {
       const d = getDate();
       const t = getTime();
@@ -92,26 +87,23 @@ const CartPage = () => {
 const CartPageCard = ({item, dispatch}: any) => {
   return (
     <View style={styles.cartContainer}>
-        <CustomImage imageUrl={item.imageUrl} height={60} width={60} margin={5}/>
-<View>
+      <CustomImage imageUrl={item.imageUrl} height={60} width={60} margin={5} />
+      <View>
         <Text style={styles.title}>{item.title}</Text>
-      
-      <View style={styles.subCartContainer}>
 
-        <TextInColumn title="Qty" value={item.itemQty} />
-        <TextInColumn title="Price($)" value={item.price} />
-        <TextInColumn title="Total" value={item.itemTotalPrice} />
+        <View style={styles.subCartContainer}>
+          <TextInColumn title="Qty" value={item.itemQty} />
+          <TextInColumn title="Price($)" value={item.price} />
+          <TextInColumn title="Total" value={item.itemTotalPrice} />
 
-        <CustomIcon
-          icon={'trash-o'}
-          size={22}
-          onPress={() => {
-            console.log("delete icon pressed");
-            
-            dispatch(removeProduct(item));
-          }}
-        />
-      </View>
+          <CustomIcon
+            icon={'trash-o'}
+            size={22}
+            onPress={() => {
+              dispatch(removeProduct(item));
+            }}
+          />
+        </View>
       </View>
     </View>
   );
@@ -127,7 +119,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 1,
     marginVertical: 2,
 
-    flexDirection:'row',
+    flexDirection: 'row',
 
     padding: 3,
     alignItems: 'center',

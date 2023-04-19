@@ -21,19 +21,12 @@ interface IExistingItem {
 }
 
 const DetailPage = ({navigation, route}: any) => {
-  console.log();
-  console.log('_____________________detail page _______________________');
-
   const {item} = route.params;
   const [quantityItem, setItemQuantity] = useState(1);
   const [showAddButton, setShowAddButton] = useState(true);
-
   const [existingItem, setExistingItem] = useState<IExistingItem | undefined>();
-
-  const dispatch = useDispatch();
-
   const product = useSelector((state: any) => state.cart);
-  //let existingItem:IExistingItem|undefined;
+  const dispatch = useDispatch();
 
   useEffect(() => {
     console.log('useEffect called');
@@ -41,7 +34,6 @@ const DetailPage = ({navigation, route}: any) => {
       (value: any) => value.id == item.id,
     );
     setExistingItem(existItem);
-    console.log(existItem, 'existing item inside useEffect');
     if (existingItem) {
       setItemQuantity(existingItem.itemQty);
       setShowAddButton(false);
@@ -107,22 +99,23 @@ const DetailPage = ({navigation, route}: any) => {
                   }),
                 );
                 setShowAddButton(false);
-                console.log(product.cartItem);
                 navigation.goBack();
               }}
             />
           ) : (
             <CustomButton
               text="Reset"
-              onPress={() => {
-                console.log(existingItem, 'Reset button');
+              onPress={() => {                
                 if (existingItem) {
                   dispatch(removeProduct(existingItem));
                   setShowAddButton(true);
                   setExistingItem(undefined);
-                  // setItemQuantity(1);
                 } else {
-                  console.log('undefined value in existingItem');
+                  Toast.show({
+                    type: 'error',
+                    text1: 'Something went wrong',
+                    position:'bottom'
+                  });                
                 }
               }}
             />
