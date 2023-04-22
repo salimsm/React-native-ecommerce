@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {AppColor} from '../../consts/colors';
-import RowWrapper from '../wrapper/row_wrapper/row_wrapper';
+import {AppColor} from '../../../consts/colors';
+import RowWrapper from '../../wrapper/row_wrapper/row_wrapper';
 
 interface IHistory {
   date: string;

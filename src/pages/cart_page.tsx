@@ -11,9 +11,13 @@ import {AppColor} from '../consts/colors';
 import {clearProduct, removeProduct} from '../redux/slice/cart_slice';
 import {getDate, getTime} from '../helper/helper';
 import Toast from 'react-native-toast-message';
+import EmptyComponent from '../component/empty_component/empty_component';
 
 const CartPage = () => {
   const product = useSelector((state: any) => state.cart);
+
+  console.log(product.cartItem.length);
+  
 
   const user = useSelector((state: any) => state.user);
 
@@ -67,19 +71,21 @@ const CartPage = () => {
 
   return (
     <View style={styles.container}>
-      <FlatList
+
+      {(product.cartItem.length !== 0) ?( <FlatList
         data={product.cartItem}
         renderItem={({item}: any) => (
           <CartPageCard item={item} dispatch={dispatch} />
         )}
-      />
+      />):<EmptyComponent text='Nothing added to cart'/>}
 
-      <View style={styles.bottomContainer}>
+{(product.cartItem.length !== 0) && (<View style={styles.bottomContainer}>
         <Text style={styles.totalStyle}>
           Total Price: ${product.totalPrice}
         </Text>
         <CustomButton text="Checkout" onPress={storeCheckout} />
       </View>
+    )}
     </View>
   );
 };

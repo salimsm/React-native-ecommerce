@@ -1,11 +1,11 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {AppColor} from '../../consts/colors';
-import RowWrapper from '../wrapper/row_wrapper/row_wrapper';
-import TextInColumn from '../text_in_column/text_in_column';
-import CustomIcon from '../../common/custom_icon/custom_icon';
-import CustomImage from '../../common/custom_image/custom_image';
-import {removeFavouriteProduct} from '../../redux/slice/favourite_slice';
+import {AppColor} from '../../../consts/colors';
+import RowWrapper from '../../wrapper/row_wrapper/row_wrapper';
+import TextInColumn from '../../text_in_column/text_in_column';
+import CustomIcon from '../../../common/custom_icon/custom_icon';
+import CustomImage from '../../../common/custom_image/custom_image';
+import {removeFavouriteProduct} from '../../../redux/slice/favourite_slice';
 
 interface IFavourite {}
 

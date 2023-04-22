@@ -23,7 +23,7 @@ const RegisterPage = ({navigation}: any) => {
     setError('');
     try {
       const res = await auth().createUserWithEmailAndPassword(
-        'ketty@gmail.com',
+        'bob@gmail.com',
         '1234567',
       );
       console.log(res);

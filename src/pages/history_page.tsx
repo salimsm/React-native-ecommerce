@@ -10,9 +10,9 @@ import database from '@react-native-firebase/database';
 
 import {AppColor} from '../consts/colors';
 import {useSelector} from 'react-redux';
-import IconAndText from '../component/icon_and_text/icon_and_text';
-import HistoryCard from '../component/history_card/history_card';
+import HistoryCard from '../component/card/history_card/history_card';
 import SecondaryAppbar from '../component/app _bar/secondary_app_bar';
+import EmptyComponent from '../component/empty_component/empty_component';
 
 interface IHistory {
   date: string;
@@ -21,7 +21,6 @@ interface IHistory {
   totalItem: number;
   totalPrice: number;
 }
-
 
 const HistoryPage = () => {
   const user = useSelector((state: any) => state.user);
@@ -53,8 +52,7 @@ const HistoryPage = () => {
 
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.titleStyle}>Recent Purchased</Text> */}
-      <SecondaryAppbar title='Recent Purchased'/>
+      <SecondaryAppbar title="Recent Purchased" />
       {isLoading ? (
         <View style={styles.loadingContianer}>
           <ActivityIndicator />
@@ -68,14 +66,11 @@ const HistoryPage = () => {
           }}
         />
       ) : (
-        <Text style={[styles.title, {alignSelf: 'center', marginVertical: 50}]}>
-          No recent purchased to show
-        </Text>
+        <EmptyComponent text='Nothing to show'/>
       )}
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -85,16 +80,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  title: {fontWeight: 'bold', fontSize: 17},
-
-  titleStyle: {
-    fontSize: 25,
-    fontFamily: 'Laila-Medium',
-    color: AppColor.black,
-    paddingHorizontal: 8,
-    borderBottomWidth: 1,
-    marginVertical: 2,
   },
 });
 
