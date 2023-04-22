@@ -14,7 +14,7 @@ export const favouriteSlice = createSlice({
   reducers: {
     addFavouriteProduct(state, action: PayloadAction<any>) {
       const product = action.payload;
-      //console.log(product,'form fav slice');
+      console.log(product,'new item');
       
       const existingItem = state.favouriteItem.find(
         (item: any) => item.id == product.id,
@@ -28,14 +28,20 @@ export const favouriteSlice = createSlice({
     },
     removeFavouriteProduct(state, action: PayloadAction<any>) {
       const product = action.payload;
-      state.favouriteItem = state.favouriteItem.filter((item)=>item.id !== product.id);      
+      state.favouriteItem = state.favouriteItem.filter(
+        item => item.id !== product.id,
+      );
     },
-    clearFavouriteProduct(state){
+    clearFavouriteProduct(state) {
       state.favouriteItem = [];
-    }
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {addFavouriteProduct,removeFavouriteProduct,clearFavouriteProduct} = favouriteSlice.actions;
+export const {
+  addFavouriteProduct,
+  removeFavouriteProduct,
+  clearFavouriteProduct,
+} = favouriteSlice.actions;
 export default favouriteSlice.reducer;

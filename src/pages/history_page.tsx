@@ -12,6 +12,7 @@ import {AppColor} from '../consts/colors';
 import {useSelector} from 'react-redux';
 import IconAndText from '../component/icon_and_text/icon_and_text';
 import HistoryCard from '../component/history_card/history_card';
+import SecondaryAppbar from '../component/app _bar/secondary_app_bar';
 
 interface IHistory {
   date: string;
@@ -52,8 +53,8 @@ const HistoryPage = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titleStyle}>Recent Purchased</Text>
-
+      {/* <Text style={styles.titleStyle}>Recent Purchased</Text> */}
+      <SecondaryAppbar title='Recent Purchased'/>
       {isLoading ? (
         <View style={styles.loadingContianer}>
           <ActivityIndicator />

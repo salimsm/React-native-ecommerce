@@ -8,6 +8,8 @@ import {AppColor} from '../consts/colors';
 import {removeUser} from '../redux/slice/user_slice';
 import {storage} from '../mmkv-storage/mmkv_storage';
 import {AppRoute} from '../consts/routes';
+import SecondaryAppbar from '../component/app _bar/secondary_app_bar';
+
 const imageUrl =
   'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png';
 
@@ -26,21 +28,13 @@ const ProfilePage = ({navigation}: any) => {
 
   return (
     <View style={styles.profilePage}>
-      <View style={{flex: 1, backgroundColor: AppColor.primary}}>
-        <CustomText text="Profile" textStyle={[styles.titleStyle]} />
+      <View style={styles.upperHalfContainer}>
+        <SecondaryAppbar title="Profile" />
       </View>
-      <View style={{flex: 2, alignItems: 'center'}}>
+      <View style={styles.lowerHalfConatiner}>
         <Image
           source={{uri: imageUrl}}
-          style={{
-            height: 200,
-            width: 200,
-            borderRadius: 100,
-            borderWidth: 1,
-            borderColor: AppColor.primary,
-            position: 'absolute',
-            top: -100,
-          }}
+          style={styles.profileImage}
         />
         <CustomText text={user.email} textStyle={styles.medium} />
         <CustomButton
@@ -60,14 +54,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: AppColor.background,
   },
-  titleStyle: {
-    fontSize: 25,
-    fontFamily: 'Laila-Medium',
-    color: AppColor.background,
-    paddingHorizontal: 8,
-    borderBottomWidth: 1,
-    marginVertical: 2,
-    alignSelf: 'center',
+  upperHalfContainer: {flex:1, backgroundColor: AppColor.primary},
+  lowerHalfConatiner:{flex: 2, alignItems: 'center'},
+  profileImage:{
+    height: 150,
+    width: 150,
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: AppColor.primary,
+    position: 'absolute',
+    top: -85,
   },
   medium: {
     color: AppColor.primary,
@@ -75,16 +71,12 @@ const styles = StyleSheet.create({
     marginTop: 130,
     fontWeight: '600',
   },
-  small: {
-    color: AppColor.primary,
-    fontSize: 17,
-  },
   watchListButton: {
     backgroundColor: AppColor.background,
-
     marginVertical: 10,
     borderWidth: 1,
     borderColor: AppColor.primary,
+    shadowColor:AppColor.primary,
   },
   watchListText: {
     color: AppColor.primary,

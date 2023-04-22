@@ -6,7 +6,7 @@ const RowWrapper = ({children}: any) => {
 };
 
 const styles = StyleSheet.create({
-  container: {flexDirection: 'row', justifyContent: 'space-between'},
+  container: {flexDirection: 'row', justifyContent: 'space-between',backgroundColor:'green'},
 });
 
 export default RowWrapper;

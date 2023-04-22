@@ -22,7 +22,7 @@ const CustomButton = ({text, onPress ,isLoading = false,buttonStyle,buttonTextSt
 const styles = StyleSheet.create({
   buttonStyle: {
     height: 40,
-    width: '80%',
+    width: '50%',
     backgroundColor: AppColor.primary,
     flexDirection:'row',
     justifyContent: 'center',

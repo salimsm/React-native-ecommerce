@@ -22,6 +22,7 @@ interface IExistingItem {
 
 const DetailPage = ({navigation, route}: any) => {
   const {item} = route.params;
+  console.log(item,'item from detail page');
   const [quantityItem, setItemQuantity] = useState(1);
   const [showAddButton, setShowAddButton] = useState(true);
   const [existingItem, setExistingItem] = useState<IExistingItem | undefined>();
