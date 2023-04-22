@@ -7,7 +7,7 @@ import {
 } from '../redux/slice/favourite_slice';
 import SecondaryAppbar from '../component/app _bar/secondary_app_bar';
 import FavouriteCard from '../component/card/favourite_card/faovurite_card';
-import EmptyComponent from '../component/empty_component/empty_component';
+import EmptyComponent from '../component/loader_text_card/loader_text_card';
 
 const FavouritePage = ({navigation}: any) => {
   const favouriteList = useSelector((state: any) => state.favourite);

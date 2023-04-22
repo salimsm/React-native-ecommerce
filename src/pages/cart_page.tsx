@@ -8,7 +8,7 @@ import {AppColor} from '../consts/colors';
 import {clearProduct} from '../redux/slice/cart_slice';
 import {getDate, getTime} from '../helper/helper';
 import Toast from 'react-native-toast-message';
-import EmptyComponent from '../component/empty_component/empty_component';
+import EmptyComponent from '../component/loader_text_card/loader_text_card';
 import CartCard from '../component/card/cart_card/cart_card';
 
 const CartPage = () => {

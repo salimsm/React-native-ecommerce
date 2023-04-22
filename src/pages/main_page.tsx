@@ -1,14 +1,14 @@
-import {ActivityIndicator, FlatList, StyleSheet, View} from 'react-native';
+import {FlatList, StatusBar, StyleSheet, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
 import {axiosInstance} from '../config/config';
 
-import CustomText from '../common/custom_text/custom_text';
 import CustomCard from '../common/custom_card/custom_card';
 import Appbar from '../component/app _bar/app_bar';
 import Category from '../component/category/category';
 import {AppColor} from '../consts/colors';
 import {AppRoute} from '../consts/routes';
+import LoaderTextCard from '../component/loader_text_card/loader_text_card';
 
 const MainPage = ({navigation}: any) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +44,7 @@ const MainPage = ({navigation}: any) => {
   };
   return (
     <View style={styles.mainPage}>
+      <StatusBar backgroundColor={AppColor.primary}/>
       <Appbar
         totalItem={product.totalItem}
         cartPage={moveToCartPage}
@@ -52,11 +53,7 @@ const MainPage = ({navigation}: any) => {
       <Category navigation={navigation}/>
       <View style={{flex: 1}}>
         {isLoading ? (
-          <>
-            <CustomText text="Welcome back..." textStyle={styles.titleStyle} />
-
-            <ActivityIndicator />
-          </>
+          <LoaderTextCard text='Welcome back' loader={true}/>
         ) : (
           <FlatList
             numColumns={2}
@@ -85,15 +82,9 @@ const styles = StyleSheet.create({
   mainPage: {
     flex: 1,
     backgroundColor: AppColor.background,
-    justifyContent: 'center',
-    alignItems: 'center',
+    
   },
 
-  titleStyle: {
-    color: AppColor.primary,
-    fontSize: 17,
-    fontFamily: 'Laila-Medium',
-  },
 });
 
 export default MainPage;

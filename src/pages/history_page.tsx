@@ -8,11 +8,10 @@ import {
 import React, {useEffect, useState} from 'react';
 import database from '@react-native-firebase/database';
 
-import {AppColor} from '../consts/colors';
 import {useSelector} from 'react-redux';
 import HistoryCard from '../component/card/history_card/history_card';
 import SecondaryAppbar from '../component/app _bar/secondary_app_bar';
-import EmptyComponent from '../component/empty_component/empty_component';
+import LoaderTextCard from '../component/loader_text_card/loader_text_card';
 
 interface IHistory {
   date: string;
@@ -54,10 +53,7 @@ const HistoryPage = () => {
     <View style={styles.container}>
       <SecondaryAppbar title="Recent Purchased" />
       {isLoading ? (
-        <View style={styles.loadingContianer}>
-          <ActivityIndicator />
-          <Text>Please wait ...</Text>
-        </View>
+        <LoaderTextCard text='Please wait' loader={true}/>
       ) : userHistory ? (
         <FlatList
           data={userHistory}
@@ -66,11 +62,13 @@ const HistoryPage = () => {
           }}
         />
       ) : (
-        <EmptyComponent text='Nothing to show'/>
+        <LoaderTextCard text='Nothing to show'/>
       )}
     </View>
   );
 };
+
+
 
 const styles = StyleSheet.create({
   container: {

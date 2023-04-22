@@ -1,15 +1,17 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {AppColor} from '../../consts/colors';
 
 interface IEmpty {
   text: string;
+  loader?: boolean;
 }
-/* Nothing to show */  
-        
-const EmptyComponent = ({text}: IEmpty) => {
+/* Nothing to show */
+
+const LoaderTextCard = ({text, loader}: IEmpty) => {
   return (
     <View style={styles.contaier}>
+      {loader&& <ActivityIndicator />}
       <Text style={styles.text}>{text}</Text>
     </View>
   );
@@ -17,10 +19,13 @@ const EmptyComponent = ({text}: IEmpty) => {
 const styles = StyleSheet.create({
   contaier: {
     borderRadius: 14,
-    paddingVertical: 10,
 
+    paddingVertical: 10,
     marginVertical: 20,
     marginHorizontal: 20,
+
+    flexDirection:'row',
+    justifyContent:'center',
 
     backgroundColor: AppColor.card,
     elevation: 8,
@@ -31,4 +36,4 @@ const styles = StyleSheet.create({
   text: {alignSelf: 'center', fontSize: 18, color: AppColor.black},
 });
 
-export default EmptyComponent;
+export default LoaderTextCard;
