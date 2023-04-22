@@ -63,5 +63,11 @@ sequence -
         master-
                 - branch/BeforeResetInDetailPage
                 - branch/Reset
-                - branch/cleanup
+                - imageViewer
+                        [to change background color to make it trasparent ]
 
+
+
+-check wifi conection
+-improve history cart
+-forget password

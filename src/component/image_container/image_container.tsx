@@ -64,7 +64,9 @@ const ImageModel = ({imageUrl, visible, toggle}: imageModelInterface) => {
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
-          }}>
+            backgroundColor:AppColor.tertiary
+
+}}>
           <CustomIcon
             icon="close"
             size={20}
@@ -93,7 +95,6 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   iconStyle: {
-    // padding: 5,
     margin:5,
     borderRadius: 50,
     borderWidth: 1,
