@@ -47,6 +47,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     borderLeftWidth: 5,
+    borderLeftColor:AppColor.primary
+
   },
   innerContainer:{flex:1},
   textBold: {fontWeight: 'bold', marginLeft: 8},

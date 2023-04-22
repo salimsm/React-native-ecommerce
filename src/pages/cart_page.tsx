@@ -3,20 +3,18 @@ import React from 'react';
 import database from '@react-native-firebase/database';
 import {useDispatch, useSelector} from 'react-redux';
 
-import CustomIcon from '../common/custom_icon/custom_icon';
 import CustomButton from '../common/custom_button/custom_button';
-import CustomImage from '../common/custom_image/custom_image';
-import TextInColumn from '../component/text_in_column/text_in_column';
 import {AppColor} from '../consts/colors';
-import {clearProduct, removeProduct} from '../redux/slice/cart_slice';
+import {clearProduct} from '../redux/slice/cart_slice';
 import {getDate, getTime} from '../helper/helper';
 import Toast from 'react-native-toast-message';
 import EmptyComponent from '../component/empty_component/empty_component';
+import CartCard from '../component/card/cart_card/cart_card';
 
 const CartPage = () => {
   const product = useSelector((state: any) => state.cart);
 
-  console.log(product.cartItem.length);
+  console.log(product.cartItem.length,'length from cartpage');
   
 
   const user = useSelector((state: any) => state.user);
@@ -75,7 +73,7 @@ const CartPage = () => {
       {(product.cartItem.length !== 0) ?( <FlatList
         data={product.cartItem}
         renderItem={({item}: any) => (
-          <CartPageCard item={item} dispatch={dispatch} />
+          <CartCard item={item} dispatch={dispatch} />
         )}
       />):<EmptyComponent text='Nothing added to cart'/>}
 
@@ -90,54 +88,11 @@ const CartPage = () => {
   );
 };
 
-const CartPageCard = ({item, dispatch}: any) => {
-  return (
-    <View style={styles.cartContainer}>
-      <CustomImage imageUrl={item.imageUrl} height={60} width={60} margin={5} />
-      <View>
-        <Text style={styles.title}>{item.title}</Text>
-
-        <View style={styles.subCartContainer}>
-          <TextInColumn title="Qty" value={item.itemQty} />
-          <TextInColumn title="Price($)" value={item.price} />
-          <TextInColumn title="Total" value={item.itemTotalPrice} />
-
-          <CustomIcon
-            icon={'trash-o'}
-            size={22}
-            onPress={() => {
-              dispatch(removeProduct(item));
-            }}
-          />
-        </View>
-      </View>
-    </View>
-  );
-};
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: AppColor.background,
     flex: 1,
-  },
-  cartContainer: {
-    backgroundColor: AppColor.card,
-    marginHorizontal: 1,
-    marginVertical: 2,
-
-    flexDirection: 'row',
-
-    padding: 3,
-    alignItems: 'center',
-
-    borderLeftWidth: 4,
-  },
-  subCartContainer: {
-    flexDirection: 'row',
-    width: '80%',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    marginVertical: 2,
   },
   totalStyle: {fontWeight: 'bold', fontSize: 17},
   title: {fontWeight: 'bold', fontSize: 17},

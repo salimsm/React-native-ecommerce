@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
     backgroundColor: AppColor.card,
     padding: 8,
     borderLeftWidth: 5,
+    borderLeftColor:AppColor.primary
   },
   productText: {
     fontSize: 14,

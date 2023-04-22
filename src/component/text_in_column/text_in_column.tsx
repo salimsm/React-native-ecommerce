@@ -6,7 +6,7 @@ const TextInColumn = ({title, value}: any) => {
   return (
     <View>
       <Text style={styles.title}>{title}</Text>
-      <Text style={styles.price}>{value}</Text>
+      <Text style={styles.price}>${value}</Text>
     </View>
   );
 };
