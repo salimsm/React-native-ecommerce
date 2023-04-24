@@ -12,6 +12,7 @@ import {useSelector} from 'react-redux';
 import HistoryCard from '../component/card/history_card/history_card';
 import SecondaryAppbar from '../component/app _bar/secondary_app_bar';
 import LoaderTextCard from '../component/loader_text_card/loader_text_card';
+import { AppColor } from '../consts/colors';
 
 interface IHistory {
   date: string;
@@ -73,6 +74,7 @@ const HistoryPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:AppColor.background
   },
   loadingContianer: {
     flex: 1,

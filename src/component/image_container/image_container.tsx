@@ -1,4 +1,4 @@
-import {Button, FlatList, Modal, StyleSheet, Text, View} from 'react-native';
+import {Button, Dimensions, FlatList, Modal, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import CustomImage from '../../common/custom_image/custom_image';
 import {AppColor} from '../../consts/colors';
@@ -65,7 +65,6 @@ const ImageModel = ({imageUrl, visible, toggle}: imageModelInterface) => {
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor:AppColor.tertiary
-
 }}>
           <CustomIcon
             icon="close"
@@ -77,9 +76,9 @@ const ImageModel = ({imageUrl, visible, toggle}: imageModelInterface) => {
           <CustomImage
             imageUrl={imageUrl}
             
-            height={'90%'}
+            height={Dimensions.get('window').height-80}
             onPress={() => {}}
-            width={300}
+            width={Dimensions.get('window').width}
           />
         </View>
       </Modal>

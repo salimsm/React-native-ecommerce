@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     backgroundColor: AppColor.background,
   },
   upperHalfContainer: {flex:1, backgroundColor: AppColor.primary},
-  lowerHalfConatiner:{flex: 2, alignItems: 'center'},
+  lowerHalfConatiner:{flex: 2, alignItems: 'center',backgroundColor:AppColor.background},
   profileImage:{
     height: 150,
     width: 150,

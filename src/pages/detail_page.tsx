@@ -53,8 +53,8 @@ const DetailPage = ({navigation, route}: any) => {
   };
 
   return (
-    <ScrollView>
-      <View style={styles.detailPage}>
+    <ScrollView style={styles.detailPage} >
+      <View >
         <Image
           source={{uri: item?.images[0]}}
           style={{width: '100%', height: 180}}

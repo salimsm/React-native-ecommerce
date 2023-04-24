@@ -1,17 +1,11 @@
-import {
-  ActivityIndicator,
-  FlatList,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import CustomCard from '../common/custom_card/custom_card';
-import CustomText from '../common/custom_text/custom_text';
 import {AppRoute} from '../consts/routes';
 import {axiosInstance} from '../config/config';
 import {AppColor} from '../consts/colors';
-import CustomIcon from '../common/custom_icon/custom_icon';
+import SecondaryAppbar from '../component/app _bar/secondary_app_bar';
+import LoaderTextCard from '../component/loader_text_card/loader_text_card';
 
 const CategoryListPage = ({route, navigation}: any) => {
   const {value} = route.params;
@@ -63,21 +57,14 @@ const CategoryListPage = ({route, navigation}: any) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.appbar}>
-        <CustomIcon icon="long-arrow-left" onPress={goToProfilePage} />
-        <CustomText
-          text={value}
-          textStyle={[styles.textStyle, styles.appBarText]}
-        />
-        <Text></Text>
-      </View>
+      <SecondaryAppbar
+        title={value}
+        leadingIcon="long-arrow-left"
+        leadingIconPressed={goToProfilePage}
+      />
       <View style={{flex: 1}}>
         {isLoading ? (
-          <>
-            <CustomText text="Please wait..." textStyle={styles.textStyle} />
-
-            <ActivityIndicator />
-          </>
+          <LoaderTextCard text="Please wait" loader={true} />
         ) : (
           <FlatList
             numColumns={2}
@@ -107,24 +94,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: AppColor.background,
   },
-
-  textStyle: {
-    color: AppColor.primary,
-    fontSize: 17,
-    fontFamily: 'Laila-Medium',
-    alignSelf: 'center',
-    marginTop: 4,
-  },
-  appBarText: {
-    fontSize: 25,
-    marginVertical: 2,
-  },
-  appbar:{flexDirection:'row',width: '100%',    borderBottomWidth: 1,
-  alignItems:'center',
-  justifyContent:'space-between',
-  paddingHorizontal: 8,
-
-}
 });
 
 export default CategoryListPage;
