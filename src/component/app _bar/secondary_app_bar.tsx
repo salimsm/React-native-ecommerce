@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     alignItems:'center'
   },
   titleStyle: {
-    fontSize: 30,
+    fontSize: 25,
     fontFamily: 'Laila-Medium',
     color:AppColor.white
   },
