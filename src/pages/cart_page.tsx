@@ -16,7 +16,6 @@ const CartPage = () => {
 
   console.log(product.cartItem.length,'length from cartpage');
   
-
   const user = useSelector((state: any) => state.user);
 
   const dispatch = useDispatch();
@@ -87,7 +86,6 @@ const CartPage = () => {
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {

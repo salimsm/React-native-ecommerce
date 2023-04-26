@@ -11,12 +11,13 @@ import {AppColor} from '../consts/colors';
 import {AppRoute} from '../consts/routes';
 
 import {updateUser} from '../redux/slice/user_slice';
-import { storage } from '../mmkv-storage/mmkv_storage';
+import {storage} from '../mmkv-storage/mmkv_storage';
+import Toast from 'react-native-toast-message';
 
 const LoginPage = ({navigation}: any) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [error, setError] = useState<String>('');
+  // const [error, setError] = useState<String>('');
   const [email, setEmail] = useState<string>('bob@gmail.com');
   //ketty@gmail.com pwd->same
   const [password, setPassword] = useState<string>('1234567');
@@ -25,25 +26,28 @@ const LoginPage = ({navigation}: any) => {
 
   const login = async () => {
     setIsLoading(true);
-    setError('');
+    // setError('');
     try {
       const res = await auth().signInWithEmailAndPassword(email, password);
       console.log(res);
       setIsLoading(false);
-      storage.set('user.uid',res.user.uid!);
-      storage.set('user.email',res.user.email!);
+      storage.set('user.uid', res.user.uid!);
+      storage.set('user.email', res.user.email!);
       dispatch(
         updateUser({
           email: res.user.email,
-          uid:res.user.uid
+          uid: res.user.uid,
         }),
       );
-      
-
     } catch (e: any) {
       console.log(e);
       setIsLoading(false);
-      setError(e.code);
+      Toast.show({
+        type: 'error',
+        text1: e.code,
+        position: 'bottom',
+      });
+      // setError(e.code);
     }
   };
   const goToRegisterPage = () => {
@@ -53,7 +57,6 @@ const LoginPage = ({navigation}: any) => {
   return (
     <View style={styles.container}>
       <CustomText text="Login" textStyle={styles.titleStyle} />
-
       <CustomInputText
         placeholder="Email"
         onChangeText={value => {
@@ -74,11 +77,13 @@ const LoginPage = ({navigation}: any) => {
           setShowPassword(!showPassword);
         }}
       />
-      {error ? (
+
+      {/* {error ? (
         <Text style={{color: 'red', marginBottom: 4}}>{error}</Text>
       ) : (
         <></>
-      )}
+      )} */}
+
       <CustomButton text="Login" onPress={login} isLoading={isLoading} />
       <View style={{flexDirection: 'row'}}>
         <Text>No account, </Text>

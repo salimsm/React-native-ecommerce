@@ -1,4 +1,4 @@
-import {Image, StyleSheet, View} from 'react-native';
+import {Dimensions, Image, ScrollView, StyleSheet, View} from 'react-native';
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
@@ -27,6 +27,7 @@ const ProfilePage = ({navigation}: any) => {
   };
 
   return (
+    <ScrollView style={{flex:1}}>
     <View style={styles.profilePage}>
       <View style={styles.upperHalfContainer}>
         <SecondaryAppbar title="Profile" />
@@ -46,6 +47,7 @@ const ProfilePage = ({navigation}: any) => {
         <CustomButton text="Logout" onPress={logout} />
       </View>
     </View>
+    </ScrollView>
   );
 };
 
@@ -54,8 +56,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: AppColor.background,
   },
-  upperHalfContainer: {flex:1, backgroundColor: AppColor.primary},
-  lowerHalfConatiner:{flex: 2, alignItems: 'center',backgroundColor:AppColor.background},
+  upperHalfContainer: {height:Dimensions.get('screen').height*0.35, backgroundColor: AppColor.primary},
+  lowerHalfConatiner:{flex: 2, alignItems: 'center',backgroundColor:AppColor.background,paddingBottom:20},
   profileImage:{
     height: 150,
     width: 150,
