@@ -7,12 +7,12 @@ import {
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import database from '@react-native-firebase/database';
+import {useSelector} from 'react-redux';
 
 import HistoryCard from '../component/card/history_card/history_card';
 import SecondaryAppbar from '../component/app _bar/secondary_app_bar';
 import LoaderTextCard from '../component/loader_text_card/loader_text_card';
-import { AppColor } from '../consts/colors';
-import { useSelector } from 'react-redux';
+import {AppColor} from '../consts/colors';
 
 interface IHistory {
   date: string;
@@ -26,6 +26,13 @@ const HistoryPage = () => {
   const user = useSelector((state: any) => state.user);
   const [userHistory, setUserHistory] = useState<IHistory[]>();
   const [isLoading, setIsLoading] = useState(true);
+  const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
+
+  const onRefresh = () => {
+    setIsRefreshing(true);
+    getItemFromFB();
+    setIsRefreshing(false);
+  };
 
   const getItemFromFB = () => {
     database()
@@ -53,28 +60,36 @@ const HistoryPage = () => {
   return (
     <View style={styles.container}>
       <SecondaryAppbar title="Recent Purchased" />
-      {isLoading ? (
-        <LoaderTextCard text='Please wait' loader={true}/>
-      ) : userHistory ? (
+
+      {/* {isLoading ? (
+        <LoaderTextCard text="Please wait" loader={true} />
+      ) : userHistory ? ( */}
         <FlatList
+          onRefresh={onRefresh}
+          refreshing={isRefreshing}
           data={userHistory}
           renderItem={({item}: {item: IHistory}) => {
             return <HistoryCard item={item} />;
           }}
+          ListEmptyComponent={
+            isLoading ? (
+              <LoaderTextCard text="Please wait" loader={true} />
+            ) : (
+              <LoaderTextCard text="Nothing to show" />
+            )
+          }
         />
-      ) : (
-        <LoaderTextCard text='Nothing to show'/>
-      )}
+      {/* ) : (
+        <LoaderTextCard text="Nothing to show" />
+      )} */}
     </View>
   );
 };
 
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:AppColor.background
+    backgroundColor: AppColor.background,
   },
   loadingContianer: {
     flex: 1,
