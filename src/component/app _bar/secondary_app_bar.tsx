@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     borderBottomWidth:1,
     borderColor: AppColor.tertiary,
 
-    paddingHorizontal:8,
+    paddingHorizontal:12,
     paddingVertical:7,
 
     elevation:2,
