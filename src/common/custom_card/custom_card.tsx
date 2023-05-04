@@ -13,6 +13,8 @@ interface cardInterface {
 }
 
 const CustomCard = ({item, onPress}: cardInterface) => {
+  //console.log(item.images[0],'card');
+  
   return (
     <TouchableOpacity style={styles.cardStyle} onPress={onPress}>
       <Image

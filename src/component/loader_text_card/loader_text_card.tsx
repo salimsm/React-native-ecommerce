@@ -6,12 +6,10 @@ interface IEmpty {
   text: string;
   loader?: boolean;
 }
-/* Nothing to show */
-
 const LoaderTextCard = ({text, loader}: IEmpty) => {
   return (
     <View style={styles.contaier}>
-      {loader&& <ActivityIndicator />}
+      {loader && <ActivityIndicator />}
       <Text style={styles.text}>{text}</Text>
     </View>
   );
@@ -24,8 +22,8 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     marginHorizontal: 20,
 
-    flexDirection:'row',
-    justifyContent:'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
 
     backgroundColor: AppColor.card,
     elevation: 8,
