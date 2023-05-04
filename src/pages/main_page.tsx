@@ -26,9 +26,6 @@ const MainPage = ({navigation}: any) => {
   const product = useSelector((state: any) => state.cart);
 
   const getProductList = () => {
-    console.log('get');
-    
-    //.get('/products')
     setIsLoading(true);
     axiosInstance
       .get(`products?offset=${offset}&limit=8`)
@@ -60,15 +57,13 @@ const MainPage = ({navigation}: any) => {
 
   const renderEmptyList = () => {
     if (isLoading) {
-      // return <ActivityIndicator size="large" color="blue" />;
       return <LoaderTextCard text="Welcome back" loader={true} />;
     } else {
       return <LoaderTextCard text="Nothing to show" />;
     }
   };
   const handleEndReached = () => {
-    console.log('end reached');
-
+    // console.log('end reached');
     getProductList();
   };
   const renderFooter = () => {
@@ -79,7 +74,6 @@ const MainPage = ({navigation}: any) => {
 
   const handleRefresh = () => {
     setOnPullLoading(true);
-    // Perform the refresh action here, such as fetching new data
     getProductList();
     setOnPullLoading(false);
   };
