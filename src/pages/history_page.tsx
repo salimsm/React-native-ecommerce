@@ -50,7 +50,8 @@ const HistoryPage = () => {
         } else {
           setIsLoading(false);
         }
-      });
+      })
+      setIsLoading(false);
   };
 
   useEffect(() => {
